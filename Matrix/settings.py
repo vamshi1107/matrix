@@ -26,7 +26,7 @@ SECRET_KEY = '2mmvjmh9j5pl*n^1cg3c=u2x@i6y@sgq(eu9z=^*s_d!@ioqix'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.26.135','127.0.0.1']
+ALLOWED_HOSTS = ['192.168.26.135','127.0.0.1','matrixmedia.herokuapp.com']
 
 
 # Application definition
