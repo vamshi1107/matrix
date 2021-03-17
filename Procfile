@@ -1,1 +1,1 @@
-web:
+web: gunicorn Matrix.wsgi
