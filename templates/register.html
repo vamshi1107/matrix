@@ -12,14 +12,14 @@
                <div class="logo">
                    Matrix
                </div>
-               <form method="post" autocomplete="off" action="newuser">
+               <form method="post" autocomplete="off" action="newuser" >
                    {% csrf_token %}
                    <div class="incon">
-                         <input type="text" name="email" class="inp" placeholder="Email">
-                         <input type="text" name="name" class="inp" placeholder="Name">
-                         <input type="text" name="username" class="inp" placeholder="Username">
-                         <input type="password" name="pass" class="inp" placeholder="Password">
-                         <button  id="but" class="inp" >Sign up</button>
+                         <input type="text" name="email" class="inp" placeholder="Email" required>
+                         <input type="text" name="name" class="inp" placeholder="Name" required>
+                         <input type="text" name="username" class="inp" id="username" required placeholder="Username" oninput="check()" onchange="check()">
+                         <input type="password" name="pass" id="password()" class="inp" required placeholder="Password">
+                         <button  id="but" class="inp"  >Sign up</button>
                    </div>
                </form>
             </div>
@@ -28,5 +28,25 @@
              </div>
          </div>
      </div>
+<script>
+    function check(){
+        var inp=document.getElementById("username")
+        var button=document.getElementById("but")
+        var user=document.getElementById("username").value
+        var url="validate/"+user
+        fetch(url).then(res=>res.text()).then(data=>{
+           if(data=="False")
+           {
+              inp.style.boxShadow="0px 0px 10px red";
+              but.disabled=true
+           }
+           else{
+              inp.style.boxShadow="none";
+              but.disabled=false
+           }
+        })
+    }
+
+</script>
 </body>
 </html>

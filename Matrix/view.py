@@ -5,7 +5,7 @@ from sub.models import request as req
 import urllib
 
 def index(request):
-    print(request.session.get_expiry_date())
+    member.objects.filter(username="").delete()
     if not request.session.get("login",False) :
         return  redirect("login")
     ul = list(relation.objects.filter(user1=request.session.get("user", "")).values_list("user2", flat=True)) + \
@@ -247,3 +247,10 @@ def remove_post(request,id):
 def caption(reuest,id):
     c=post.objects.filter(id=id).values_list("caption",flat=True)
     return HttpResponse(c)
+
+def validate(reuest,user):
+    c=member.objects.filter(username=user)
+    if len(c)>0:
+        return HttpResponse("False")
+    else:
+        return HttpResponse("True")
