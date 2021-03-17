@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap');
+
+.head{
+  background-color: #ffffff;
+  height:57px;
+  display:flex;
+  flex-direction:row;
+  border-bottom:0.1px solid #dad8d8;
+  align-items:center;
+  justify-content:space-around;
+   flex-basis: 55px;
+   padding-left:0vw;
+   padding-right:0vw;
+   position:fixed;
+   width:100vw;
+  top:0px;
+}
+
+#logo{
+margin-left:10px;
+font-size:25px;
+text-decoration:none;
+font-family: 'Open Sans Condensed', sans-serif;
+letter-spacing:1px;
+color:#100f0f;
+}
+
+body{
+  margin:0px;
+  background-color:#fafafa;
+}
+
+.icons{
+  width:35px;
+  height:20px;
+  margin-right:25px;
+}
+
+.igroup{
+  height:100%;
+   display:flex;
+  flex-direction:row;
+   align-items:center;
+  justify-content:space-around;
+}
+
+#udp{
+  background-color:red;
+  height:30px;
+  width:30px;
+  border-radius:15px;
+}
+
+#udp:before{
+    background-color:blue;
+    content:" "
+}
+
+a{
+ text-decoration:none;
+}
+
+.whole{
+  display:flex;
+  flex-direction:row;
+  margin-left:auto;
+  width:70vw;
+  margin-right:auto;
+  margin-top:70px;
+}
+
+
+.dp{
+  height:40px;
+  width:40px;
+  border-radius:20px;
+  background-color:red;
+  margin-left:15px;
+  text-align:center;
+}
+
+.u_mdp{
+  width:25px;
+  height:20px;
+  margin-right:22px;
+  box-shadow:none;
+  border-radius:10px;
+}
+
+#tp{
+  height:100%;
+  width:100%;
+    background-color:#ff4500;
+
+}

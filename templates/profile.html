@@ -1,0 +1,131 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block body%}
+{% include 'post.html' %}
+<div class="prf" style="height:90vh">
+    <style>
+    .prf{
+     margin-right:auto;
+     margin-left:auto;
+       width:70vw;
+      background-color:#fafafa;
+     height:90vh;
+     }
+
+        #bio{
+          margin-top:6px;
+          font-size:15px;
+          font-family: 'Poppins', sans-serif;
+          font-weight:bold;
+          width:400px;
+          word-break:break-word;
+          margin-bottom:20px;
+          height:80px;
+          overflow-y:auto;
+      }
+      #bio::-webkit-scrollbar{
+        width:10px;
+      }
+      .info{
+           height:auto;
+        padding-bottom:20px;
+        padding-top:20px;
+      }
+      .u_posts{
+        margin-bottom:50px;
+      }
+      #createp{
+       background-color:#ffffff;
+       border:0.1px solid #dad8d8;
+       display:flex;
+       justify-content:center;
+       align-items:center;
+       font-size:25px;
+       font-family: 'Poppins', sans-serif;
+      }
+      .npost{
+  height:300px;
+  width:100%;
+  background-color:red;
+
+}
+      </style>
+
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <div class="info">
+        {% if dpfound %}
+         <div class="up" onclick="opendp()" style="overflow:hidden;background-color:transparent;">
+             <img src="{{dp.content}}" height="100%" width="100%">
+         </div>
+        {% endif %}
+
+        {% if not dpfound %}
+        <div class="up" onclick="opendp()" style="overflow:hidden;background-color:transparent;">
+             <img src="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" height="100%" width="100%">
+         </div>
+         {% endif %}
+         <div class="dete">
+                 <div id="u_name">
+                    {{user.username}}
+                 </div>
+                 <div id="u_inf">
+                    <div class="del">
+                     <span class="ans">{{friends}}</span>
+                        <span class="heading">
+                            <a href="/userfriends/{{user.username}}" style="text-decoration:none">
+                                Friends
+                                </a>
+                        </span>
+                    </div>
+                     <div class="del">
+                        <span class="ans">{{nposts}}</span>
+                        <span class="heading">Posts</span>
+                    </div>
+                 </div>
+                 <div class="p_info">
+                      <div id="user_name">
+                          {{user.name}}
+                      </div>
+                     <div id="bio">
+
+                     </div>
+                 </div>
+         </div>
+    </div>
+<div class="u_posts">
+    <div class="npost"  id="createp" onclick="make(event)">
+        <div>Add post</div>
+    </div>
+  {% for i in posts %}
+    <div class="post" >
+       <img src="{{ i.content}}" width="100%" height="100%" >
+        <input type="text" value="{{i.id}}" style="display:none;">
+    </div>
+    {% endfor %}
+</div>
+</div>
+<script>
+    document.querySelectorAll(".post").forEach(ele=>{
+      ele.addEventListener("click",(e)=>{
+      var c=e.srcElement.parentElement.children
+      var id;
+       for(let i of c){
+           if(i.type=="text"){
+              id=i.value
+           }
+       }
+        open(e.srcElement.src,id);
+      })
+    })
+    function open(url,id){
+       document.getElementById("pc").style.visibility="visible";
+       document.getElementById("sho").src=url;
+       document.getElementById("postid").value=id;
+    }
+     function opendp(){
+       document.getElementById("dpin").style.visibility="visible";
+    }
+</script>
+{% endblock %}

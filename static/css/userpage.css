@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap');
+.prf{
+ margin-right:auto;
+ margin-left:auto;
+ width:70vw;
+ background-color:#fafafa;
+ height:95vh;
+}
+
+a{
+ color:#000000;
+}
+
+.up{
+  width:130px;
+  height:130px;
+  border-radius:70px;
+  background-color:red;
+  margin-top:20px;
+}
+
+.info{
+   display:flex;
+   flex-direction:row;
+    justify-content:space-around;
+   border-bottom:.1px solid #dad8d8;
+}
+.dete{
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+   align-items:flex-start;
+   width:50%;
+   margin-top:10px;
+   height:180px;
+}
+#u_name{
+ font-family: 'Montserrat', sans-serif;
+ font-size:2rem;
+}
+#u_inf{
+  margin-left:0px;
+  display:flex;
+  flex-direction:row;
+}
+.heading{
+  font-size:15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:bold;
+  color:#000000;
+}
+.del{
+   display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  width:100px;
+  height:50px;
+  margin-right:30px;
+}
+.ans{
+font-family: 'Roboto', sans-serif;
+font-size:15px;
+margin-right:10px;
+font-weight:bolder;
+}
+
+#user_name{
+  font-family: 'Roboto', sans-serif;
+  text-transform:capitalize;
+  font-weight:bolder;
+}
+
+#bio{
+  margin-top:6px;
+  font-size:15px;
+  font-family: 'Poppins', sans-serif;
+  font-weight:bold;
+  width:200px;
+  word-break:break-word;
+  margin-bottom:20px;
+}
+
+.u_posts{
+ width:100%;
+ height:auto;
+ display:grid;
+ grid-template-columns:33% 34% 33%;
+ grid-gap:10px;
+ margin-right:10vw;
+ margin-top:50px;
+}
+
+.post{
+  height:300px;
+  width:100%;
+  background-color:red;
+
+}
+
+a{
+ text-decoration:none;
+ color:black;
+}
+

@@ -1,0 +1,335 @@
+      <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap');
+
+        .bod{
+          position:fixed;
+          left:0px;
+          right:0px;
+          background-color:#0000007a;
+          top:0px;
+          bottom:0px;
+          opacity:80;
+          display:flex;
+          align-items:center;
+          visibility:hidden;
+          z-index:999;
+        }
+        body{
+         margin:0px;
+         padding:0px;
+        }
+        .container{
+          width:70vw;
+          height:80vh;
+          background-color:white;
+          margin-right:auto;
+          margin-left:auto;
+          border-radius:10px;
+        }
+        .clb{
+          font-size:30px;
+          cursor:pointer;
+          font-weight:bold;
+          transform:rotate(45deg);
+          width:40px;
+          height:40px;
+          margin:20px;
+          float:left;
+        }
+        .ban{
+         width:100%;
+          margin-right:auto;
+          margin-left:auto;
+          display:flex;
+          justify-content:flex-end;
+          height:70px;
+        }
+        .post_i{
+          width:70%;
+          height:70%;
+          margin:auto;
+          border-radius:10px;
+          overflow:hidden;
+          border:.1px solid #dad8d8;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+        }
+        #nc{
+           width:50vw;
+        }
+        #ct{
+          font-size:20px;
+          font-weight:bold;
+          cursor:pointer;
+        }
+        #ct2{
+          font-size:20px;
+          font-weight:bold;
+          cursor:pointer;
+        }
+        #capcon{
+          width:100%;
+          display:flex;
+          justify-content:center;
+        }
+        #cap{
+          margin:10px 20px;
+          height:50px;
+          width:70%;
+          border-radius:5px;
+          border:.3px solid #dad8d8;
+          outline:none;
+        }
+        #pos{
+         margin:20px 20px;
+         color:blue;
+         font-size:20px;
+         cursor:pointer;
+        }
+        #dpcon{
+          width:40vw;
+        }
+        #dpup{
+         margin-top:20px;
+         color:blue;
+         font-size:20px;
+         cursor:pointer;
+         font-family: 'Roboto', sans-serif;
+        }
+        #update{
+          width:99%;
+          display:flex;
+          flex-direction:row;
+          justify-content:center;
+        }
+        #premb{
+          border:none;
+          font-size:15px;
+          height:30px;
+          border-radius:5px;
+          font-weight:bold;
+          background-color:#0095f6;
+          color:#ffffff;
+          margin:10px;
+        }
+        #remc{
+          display:flex;
+          flex-direction:row;
+          justify-content:center;
+          width:99%;
+        }
+        .prog{
+          height:100px;
+          width:100px;
+          border:10px solid grey;
+          border-left:10px solid blue;
+          border-radius:50%;
+          position:fixed;
+          z-index:11111;
+          left:50%;
+          margin-left:-100px;
+           top:50%;
+          margin-top:-100px;
+          animation:anim 1s infinite ease;
+          visibility:hidden;
+        }
+        @keyframes anim{
+          from{
+            transform:rotate(0deg)
+          }
+          to{
+            transform:rotate(360deg)
+          }
+        }
+</style>
+<div class="bod" id="pc">
+      <div class="container">
+          <div class="prog" id="pr1"></div>
+          <div class="ban">
+              <div onclick="close()" class="clb" id="c1">+</div>
+          </div>
+          <div>
+              <div class="post_i" style="height:80%;">
+                 <img width="100%" height="100%" alt="" src="" id="sho" >
+                  <input type="hidden" id="postid">
+              </div>
+              <div id="remc">
+                  <button onclick="rempost()" id="premb">remove</button>
+              </div>
+          </div>
+      </div>
+</div>
+<div class="bod" id="newp">
+      <div class="container" id="nc">
+                    <div class="prog" id="pr2"></div>
+          <div class="ban">
+              <div onclick="close()" class="clb" id="c2">+</div>
+          </div>
+          <div class="poscon">
+           <form action="/post" method="post" id="pform" autocomplete="off">
+               {% csrf_token %}
+             <div class="post_i" id="nps" onclick="upload()">
+                 <div id="ct">Upload Image</div>
+                 <img width="100%" height="100%" alt="" src="" id="pimg" style="display:none">
+                 <input type="file" style="display:none" id="finp" onchange="selected()">
+                 <input type="hidden" value="{{user.username}}" id="username" name="user">
+                 <input type="hidden"  id="type" name="type">
+                 <input type="hidden"  id="url" name="url">
+             </div>
+             <div id="capcon">
+                     <input id="cap" type="text" placeholder="Caption" name="cap">
+                 <div id="pos" onclick="submit()">
+                     Post
+                 </div>
+             </div>
+           </form>
+          </div>
+
+      </div>
+</div>
+<div class="bod" id="dpin">
+      <div class="container" id="dpcon">
+                    <div class="prog" id="pr3"></div>
+          <div class="ban" >
+              <div onclick="close()" class="clb" id="c3">+</div>
+          </div>
+          <div>
+              <form action="addpic" method="post"  id="dpform">
+                  {% csrf_token%}
+                   <div class="post_i" onclick="upload2()">
+                          <div id="ct2">Upload Image</div>
+                           <img width="100%" height="100%" alt="" src="" id="pidp" style="display:none">
+                          <input type="file" style="display:none" id="finp2" onchange="selected2()">
+                          <input type="hidden" value="{{user.username}}" id="username2" name="user">
+                           <input type="hidden"  id="dpurl" name="url">
+                   </div>
+                   <div id="update" onclick="update()">
+                         <div id="dpup">Update</div>
+                   </div>
+              </form>
+          </div>
+      </div>
+</div>
+<script>
+    document.querySelectorAll(".clb").forEach(ele=>{
+         ele.addEventListener("click",(e)=>{
+              close(e)
+         })
+         })
+     function close(e){
+          e.srcElement.parentElement.parentElement.parentElement.style.visibility="hidden";
+     }
+     function make(e){
+       document.getElementById("newp").style.visibility="visible";
+     }
+
+     function upload(){
+       document.getElementById("finp").click()
+     }
+     function upload2(){
+       document.getElementById("finp2").click()
+     }
+
+     function rempost(){
+       var id=document.getElementById("postid").value
+        url="removepost/"+id
+        fetch(url).then(res=>res.text()).then(data=>{
+          if(data=="True"){
+            window.location.reload()
+          }
+        })
+     }
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+<script>
+      var firebaseConfig = {
+           apiKey: "AIzaSyBsxMIXmRJebSOc5i7gYlYFT42TdOw6DcA",
+           authDomain: "myproject-d9de9.firebaseapp.com",
+           databaseURL: "https://myproject-d9de9.firebaseio.com",
+           projectId: "myproject-d9de9",
+           storageBucket: "myproject-d9de9.appspot.com",
+           messagingSenderId: "403604530600",
+           appId: "1:403604530600:web:60d9c6b109832036daa99d",
+           measurementId: "G-NHJSQNBL1H"
+      };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  function selected(){
+      var input = document.getElementById("finp");
+      document.getElementById("ct").style.display="none";
+      var hin = document.getElementById("pimg");
+      hin.style.display="flex";
+      const file=input.files[0];
+      if (file){
+         var reader=new FileReader();
+         reader.addEventListener("load",(e)=>{
+              hin.src=e.srcElement.result
+         })
+         reader.readAsDataURL(file)
+      }
+  }
+  function selected2(){
+      var input = document.getElementById("finp2");
+      document.getElementById("ct2").style.display="none";
+      var hin = document.getElementById("pidp");
+      hin.style.display="flex";
+      const file=input.files[0];
+      if (file){
+         var reader=new FileReader();
+         reader.addEventListener("load",(e)=>{
+              hin.src=e.srcElement.result
+         })
+         reader.readAsDataURL(file)
+      }
+  }
+
+  function submit(){
+      var input = document.getElementById("finp");
+      document.getElementById("pr2").style.visibility="visible";
+      var us=document.getElementById("username").value
+      var cap=document.getElementById("cap").value
+      ref=firebase.storage().ref()
+       var file=input.files[0];
+      if(file !=undefined){
+       var name=new Date() + file.name
+       meta={
+           contentType:file.type
+        }
+       task=ref.child(name).put(file,meta);
+       task.then(snap=>snap.ref.getDownloadURL()).then(url=>{
+           document.getElementById("url").value=url
+           document.getElementById("type").value=file.type
+           document.getElementById("pform").submit()
+       })
+     }
+     }
+   function update(){
+      var input = document.getElementById("finp2");
+      document.getElementById("pr3").style.visibility="visible";
+      var us=document.getElementById("username2").value
+      var file=input.files[0];
+      if(file !=undefined){
+       var name=new Date() + file.name
+       ref=firebase.storage().ref()
+       meta={
+           contentType:file.type
+        }
+       task=ref.child(name).put(file,meta);
+       task.then(snap=>snap.ref.getDownloadURL()).then(url=>{
+           document.getElementById("dpurl").value=url
+           document.getElementById("dpform").submit()
+       })
+     }
+     }
+ </script>
+ <script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>

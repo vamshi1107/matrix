@@ -1,0 +1,30 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matrix</title>
+    <link rel="stylesheet"  href="{% static 'css/login.css' %}" type="text/css">
+</head>
+<body>
+     <div class="whole" style="justify-content:center">
+         <div class="log" style="margin-right:0vw;">
+            <div class="login">
+               <div class="logo">
+                   Matrix
+               </div>
+               <form method="post">
+                   {% csrf_token %}
+                   <div class="incon">
+                         <input type="text" name="username" class="inp" placeholder="Username">
+                         <input type="password" name="pass" class="inp" placeholder="Password">
+                         <button  id="but" class="inp" >Login</button>
+                   </div>
+               </form>
+            </div>
+             <div class="reg">
+                 Don't have an account? <a href="register"> Sign up</a>
+             </div>
+         </div>
+     </div>
+</body>
+</html>

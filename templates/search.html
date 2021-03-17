@@ -1,0 +1,62 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block body%}
+<div>
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <script>
+     async function add(){
+        var val=document.getElementById("s_inp").value
+        const k=await fetch("json?code=1107")
+        const res=await k.json()
+        var n=res["users"].filter(u=>{
+          return u["name"].toLowerCase().startsWith(val.toLowerCase()) || u["username"].toLowerCase().startsWith(val.toLowerCase())
+        })
+        var result=document.querySelector(".result")
+        result.innerHTML=""
+        n.forEach(e=>{
+          var a=document.createElement("a")
+          a.href="user/"+e["username"]
+          var div=document.createElement("div")
+          div.innerHTML=e["name"]
+          a.appendChild(div)
+          result.appendChild(a)
+        })
+        if (val===""){
+         result.innerHTML=""
+        }
+     }
+    </script>
+    <div>
+        <style>
+         .result >a {
+               padding-left:10px;
+               margin-right:5px;
+               border:0.1px solid #dad8d8;
+               width:60vw;
+               height:60px;
+               display:flex;
+               flex-direction:row;
+               align-items:center;
+               background-color:#ffffff;
+               margin-left:0px;
+               text-transform:capitalize;
+             }
+         a{
+           text-decoration:none;
+           color:black;
+         }
+         #s_inp{
+           font-size:18px;
+         }
+        </style>
+        <div class="container">
+            <input type="text" id="s_inp" placeholder="Search Friends" oninput="add()">
+            <div class="result">
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
