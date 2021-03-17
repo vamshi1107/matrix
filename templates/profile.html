@@ -123,6 +123,10 @@
        document.getElementById("pc").style.visibility="visible";
        document.getElementById("sho").src=url;
        document.getElementById("postid").value=id;
+       var url="caption/"+id
+       fetch(url).then(res=>res.text()).then(data=>{
+                 document.getElementById("post_caption").innerHTML=data
+       })
     }
      function opendp(){
        document.getElementById("dpin").style.visibility="visible";

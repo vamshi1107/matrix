@@ -85,7 +85,7 @@
         }
     </script>
     <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
-    {% include 'post.html' %}
+    {% include 'post2.html' %}
     <div class="info">
            {% if dpfound %}
          <div class="up"  style="overflow:hidden;background-color:transparent;">
@@ -156,18 +156,30 @@
   {% for i in posts %}
     <div class="post" >
        <img src="{{ i.content}}" width="100%" height="100%">
+        <input type="text" value="{{i.id}}" style="display:none;">
     </div>
     {% endfor %}
 </div>
     <script>
          document.querySelectorAll(".post").forEach(ele=>{
-      ele.addEventListener("click",(e)=>{
-        open(e.srcElement.src);
+     ele.addEventListener("click",(e)=>{
+      var c=e.srcElement.parentElement.children
+      var id;
+       for(let i of c){
+           if(i.type=="text"){
+              id=i.value
+           }
+       }
+        open(e.srcElement.src,id);
       })
     })
-    function open(url){
+    function open(url,id){
        document.getElementById("pc").style.visibility="visible";
        document.getElementById("sho").src=url;
+       var url="/caption/"+id
+       fetch(url).then(res=>res.text()).then(data=>{
+                 document.getElementById("post_caption").innerHTML=data
+       })
     }
     </script>
 </div>

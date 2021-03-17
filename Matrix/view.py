@@ -243,3 +243,7 @@ def add_pic(request):
 def remove_post(request,id):
     post.objects.filter(id=id).delete()
     return HttpResponse("True")
+
+def caption(reuest,id):
+    c=post.objects.filter(id=id).values_list("caption",flat=True)
+    return HttpResponse(c)

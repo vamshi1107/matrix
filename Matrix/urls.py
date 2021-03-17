@@ -37,6 +37,7 @@ urlpatterns = [
     path('post', newpost, name="post"),
     path('addpic', add_pic, name="addpic"),
     path('check/<str:user>', check, name="post"),
+    path('caption/<int:id>', caption, name="post"),
     path('removepost/<int:id>', remove_post, name="rem"),
     path('user/<str:user>', userpage, name="json"),
 

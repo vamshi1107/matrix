@@ -32,6 +32,13 @@
       align-content:center;
       justify-content:space-between;
     }
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    .usname{
+          margin-top:10px;
+          font-size:15px;
+          font-weight:bolder;
+          font-family: 'Poppins', sans-serif;
+    }
 </style>
 </div>
 <div class="postcon">
@@ -47,8 +54,8 @@
                 <img src="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" height="100%" width="100%">
             {% endif %}
         </div>
-        <div>
-          {{i.user}}
+        <div class="usname">
+            <a href="user/{{i.user.username}}">{{i.user}}</a>
          </div>
        </div>
   <div class="more">
@@ -60,7 +67,7 @@
            <img src="{{i.post.content}}" width="100%" height="100%"/>
          </div>
          <div class="info">
-             {{i.post.caption}}
+             <span class="usname"><a href="user/{{i.user.username}}">{{i.user}}</a></span>{{i.post.caption}}
          </div>
      </div>
      <footer style="bottom:0px;">
@@ -83,7 +90,6 @@
 
 {% block side %}
 <div class="side">
- <div>hi</div>
 </div>
 {% endblock %}
 
