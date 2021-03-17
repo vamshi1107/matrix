@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .view import *
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,3 +41,4 @@ urlpatterns = [
     path('user/<str:user>', userpage, name="json"),
 
 ]
+urlpatterns += staticfiles_urlpatterns()
