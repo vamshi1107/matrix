@@ -161,10 +161,13 @@
           justify-content:space-between;
         }
         .ud{
-          width:35%;
+          width:45%;
           display:flex;
+          height:97%;
           flex-direction:column;
           justify-content:space-between;
+          margin-left:20px;
+          border-left:.1px solid #dad8d8;
         }
         .post_i{
           width:80%;
@@ -178,88 +181,130 @@
           margin-left:auto;
           margin-right:auto;
         }
-        #pi1{
-          width:70%;
-          height:95%;
-          border-radius:10px;
-          overflow:hidden;
-          border:.1px solid #dad8d8;
-          display:flex;
-          justify-content:center;
-          align-items:center;
-          margin-top:15px;
-          margin-left:20px;
-        }
-        .posp{
-           height:60px;
-           width:60px;
-           border-radius:50%;
-        }
-        .user_d{
-           display:flex;
-           flex-direction:row;
-        }
-        .post_unamec{
-          display:flex;
-           flex-direction:row;
-           align-items:center;
-           margin-left:15px;
-        }
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap');
-        .unm{
-          font-size:18px;
-          font-weight:bolder;
-          font-family: 'Poppins', sans-serif;
-        }
-        #userm{
-          font-weight:bolder;
-          text-transform:capitalize;
-        }
-        .unio{
-          margin-left:10px;
-          margin-top:20px;
-        }
-        .pcap{
-          font-family: 'Poppins', sans-serif;
-          width:95%;
-        }
-        #post_caption{
-          margin-top:20px;
-          margin-left:15px;
-          word-wrap:break-word;
-        }
+
+
 </style>
+  <style>
+             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap');
+        .container{
+          width:70vw;
+          height:80vh;
+          background-color:white;
+          margin-right:auto;
+          margin-left:auto;
+          border-radius:2px;
+        }
+        #con1{
+          width:70vw;
+          height:80vh;
+          background-color:white;
+          margin-right:auto;
+          margin-left:auto;
+          border-radius:2px;
+          padding:0px;
+          display:flex;
+          flex-direction:row;
+        }
+        .left{
+          width:70%;
+          height:100%;
+        }
+        .right{
+          width:30%;
+          height:100%;
+          display:flex;
+          flex-direction:column;
+        }
+        .banner{
+          height:60px;
+          border-bottom:.1px solid #dad8d8;
+          display:flex;
+          flex-direction:row;
+          justify-content:space-between;
+          align-items:center;
+          padding-left:15px;
+        }
+        .uc_o{
+          height:60px;
+          display:flex;
+          flex-direction:row;
+          align-items:center;
+        }
+        .prop{
+          height:35px;
+          width:35px;
+          border-radius:50%;
+        }
+        .ubm{
+          margin-left:15px;
+          font-size:18px;
+        }
+        .clb{
+          font-size:30px;
+          cursor:pointer;
+          font-weight:bold;
+          transform:rotate(45deg);
+          width:40px;
+          height:40px;
+          margin:20px;
+          float:right;
+           display:flex;
+          flex-direction:row;
+          align-items:center;
+          margin-top:30px;
+        }
+        .ubcon{
+          width:100%;
+          height:80%;
+          overflow-y:auto;
+        }
+        .capic{
+          font-weight:bolder;
+          display:flex;
+          flex-direction:column;
+        }
+        .uk{
+          margin-top:10px;
+          margin-left:20px;
+          font-size:17px;
+          font-family: 'Poppins', sans-serif;
+        }
+        .captio{
+          word-wrap:break-word;
+          margin:10px;
+        }
+    </style>
 <div class="bod" id="pc">
       <div class="container" id="con1">
-          <div class="prog" id="pr1"></div>
-          <div class="ban" id="ban1">
-              <div class="user_d">
-                  <div class="posp">
-                   {% if dpfound %}
-                        <img src="{{dp.content}}" height="100%" width="100%">
-                   {% endif %}
-                   {% if not dpfound %}
-                       <img src="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" height="100%" width="100%">
-                   {% endif %}
-                  </div>
-                  <div class="post_unamec">
-                      <span class="unm">{{user.username}}</span>
-                  </div>
-              </div>
-              <div onclick="close()" class="clb" id="c1">+</div>
-          </div>
-          <div  class="rib">
-              <div class="post_i" id="pi1">
-                  <img width="100%" height="100%" alt="" src="" id="sho" >
-                  <input type="hidden" id="postid">
-              </div>
-              <div class="ud">
-                  <div class="unio">
-                        <span class="unm" id="userm">{{user.username}}</span>
-                        <div class="pcap" id="post_caption">
+           <div class="prog" id="pr1"></div>
+           <div class="left">
+              <img width="100%" height="100%" alt="" src="" id="sho" >
+           </div>
+          <div class="right">
+               <div class="banner">
+                   <div class="uc_o">
+                      <div class="prop">
+                           {% if dpfound %}
+                                  <img src="{{dp.content}}" height="100%" width="100%">
+                           {% endif %}
+                           {% if not dpfound %}
+                                 <img src="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" height="100%" width="100%">
+                           {% endif %}
+                      </div>
+                      <div class="ubm">
+                        {{user.username}}
+                      </div>
+                   </div>
+                   <div onclick="cls()" class="clb" id="c1">+</div>
+               </div>
+              <div class="ubcon">
+                  <div class="capic">
+                     <span class="uk">{{user.name}}</span>
+                      <div class="captio" id="post_caption">
 
-                        </div>
+                      </div>
                   </div>
               </div>
           </div>
@@ -323,6 +368,10 @@
          })
          })
      function close(e){
+                document.getElementById("pc").style.visibility="hidden";
+
+     }
+     function cls(e){
           e.srcElement.parentElement.parentElement.parentElement.style.visibility="hidden";
      }
      function make(e){

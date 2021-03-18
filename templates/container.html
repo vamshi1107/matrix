@@ -17,6 +17,7 @@
       display:flex;
       justify-content:center;
       align-items:center;
+      margin-bottom:100px;
     }
     a{
       text-decoration:none;
@@ -33,11 +34,25 @@
       justify-content:space-between;
     }
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
     .usname{
           margin-top:10px;
           font-size:15px;
           font-weight:bolder;
           font-family: 'Poppins', sans-serif;
+    }
+    .info{
+      display:flex;
+      flex-direction:row;
+      justify-content:flex-start;
+    }
+    .us_con{
+      margin:10px;
+    }
+    .ext{
+      font-family: 'Roboto', sans-serif;
+      font-weight:bolder;
+      margin-right:15px;
     }
 </style>
 </div>
@@ -55,7 +70,7 @@
             {% endif %}
         </div>
         <div class="usname">
-            <a href="user/{{i.user.username}}">{{i.user}}</a>
+            <a href="user/{{i.user.username}}">{{i.user.username}}</a>
          </div>
        </div>
   <div class="more">
@@ -67,7 +82,8 @@
            <img src="{{i.post.content}}" width="100%" height="100%"/>
          </div>
          <div class="info">
-             <span class="usname"><a href="user/{{i.user.username}}">{{i.user}}</a></span>{{i.post.caption}}
+             <div class="us_con"><span class="usname ext">{{i.user.name}}</span>
+             {{i.post.caption}}</div>
          </div>
      </div>
      <footer style="bottom:0px;">
