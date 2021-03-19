@@ -275,6 +275,24 @@
           word-wrap:break-word;
           margin:10px;
         }
+        #post_caption{
+          font-size:17px;
+          font-family: 'Poppins', sans-serif;
+          border-bottom:.1px solid #dad8d8;
+        }
+        .rbkc{
+          border:0.1px solid grey;
+          font-size:15px;
+          height:30px;
+          border-radius:5px;
+          font-weight:bold;
+          color:#000000;
+          width:auto;
+          padding-left:5px;
+          padding-right:5px;
+          margin:5px;
+          cursor:pointer;
+        }
     </style>
 <div class="bod" id="pc">
       <div class="container" id="con1">
@@ -296,12 +314,14 @@
                       <div class="ubm">
                         {{user.username}}
                       </div>
+                       <div onclick="rempost()" class="rbkc">remove</div>
                    </div>
                    <div onclick="cls()" class="clb" id="c1">+</div>
                </div>
               <div class="ubcon">
                   <div class="capic">
-                     <span class="uk">{{user.name}}</span>
+                      <input type="hidden" id="postid">
+<!--                     <span class="uk">{{user.name}}</span>-->
                       <div class="captio" id="post_caption">
 
                       </div>
@@ -314,7 +334,7 @@
       <div class="container" id="nc">
                     <div class="prog" id="pr2"></div>
           <div class="ban">
-              <div onclick="close()" class="clb" id="c2">+</div>
+              <div onclick="closepost()" class="clb" id="c2">+</div>
           </div>
           <div class="poscon">
            <form action="/post" method="post" id="pform" autocomplete="off">
@@ -342,7 +362,7 @@
       <div class="container" id="dpcon">
                     <div class="prog" id="pr3"></div>
           <div class="ban" >
-              <div onclick="close()" class="clb" id="c3">+</div>
+              <div onclick="closedp()" class="clb" id="c3">+</div>
           </div>
           <div>
               <form action="addpic" method="post"  id="dpform">
@@ -362,17 +382,20 @@
       </div>
 </div>
 <script>
-    document.querySelectorAll(".clb").forEach(ele=>{
-         ele.addEventListener("click",(e)=>{
-              close(e)
-         })
-         })
+
      function close(e){
                 document.getElementById("pc").style.visibility="hidden";
 
      }
+     function closedp(e){
+                document.getElementById("dpin").style.visibility="hidden";
+
+     }
      function cls(e){
-          e.srcElement.parentElement.parentElement.parentElement.style.visibility="hidden";
+           document.getElementById("pc").style.visibility="hidden";
+     }
+     function closepost(e){
+           document.getElementById("newp").style.visibility="hidden";
      }
      function make(e){
        document.getElementById("newp").style.visibility="visible";

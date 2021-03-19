@@ -39,3 +39,12 @@ class displaypic(models.Model):
 
     def __str__(self):
         return self.user
+
+class comment(models.Model):
+    user=models.CharField(max_length=100)
+    content = models.CharField(max_length=1500)
+    postid=models.CharField(max_length=5000)
+    def __str__(self):
+        return self.postid
+
+
