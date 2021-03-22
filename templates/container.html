@@ -58,9 +58,39 @@
        background-color:#ffffff;
 
     }
+    .posbu{
+      cursor:pointer;
+      color:blue;
+      font-size:18px;
+    }
+    .info{
+      height:auto;
+    }
+    .content{
+    height:600px;
+    }
+    .card{
+      min-height:700px;
+    }
+    .comhead{
+      margin:10px;
+      font-family: 'Roboto', sans-serif;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .comcount{
+      margin-left:15px;
+      font-family: 'Roboto', sans-serif;
+      font-weight:bold;
+    }
+    .commen{
+      margin-top:15px;
+    }
 </style>
 </div>
+{% include 'comments.html' %}
 <div class="postcon">
+    <input value="{{user}}" type="hidden" id="lusername">
     {% for i in posts %}
  <div class="card">
   <header class="chead">
@@ -89,6 +119,10 @@
              <div class="us_con"><span class="usname ext">{{i.user.name}}</span>
              {{i.post.caption}}</div>
          </div>
+         <div class="commen">
+             <input type="hidden" value="{{i.post.id}}">
+             <span class="comcount">{{i.ncom}}</span><span class="comhead" >comments</span>
+         </div>
      </div>
      <footer style="bottom:0px;">
          <div class="comm">
@@ -96,20 +130,95 @@
                  <svg aria-label="Emoji" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M24 48C10.8 48 0 37.2 0 24S10.8 0 24 0s24 10.8 24 24-10.8 24-24 24zm0-45C12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21S35.6 3 24 3z"></path><path d="M34.9 24c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5zm-21.8 0c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5zM24 37.3c-5.2 0-8-3.5-8.2-3.7-.5-.6-.4-1.6.2-2.1.6-.5 1.6-.4 2.1.2.1.1 2.1 2.5 5.8 2.5 3.7 0 5.8-2.5 5.8-2.5.5-.6 1.5-.7 2.1-.2.6.5.7 1.5.2 2.1 0 .2-2.8 3.7-8 3.7z"></path></svg>
              </div>
              <input type="text" class="comment" placeholder="Add comment">
+             <div class="posbu" onclick="addcom(event,{{i.post.id}})">Post</div>
          </div>
      </footer>
  </div>
     {% endfor %}
     <div class="addin">
         <a href="/search" class="inv">
-        <div>Add Friends</div>
+        <div>Find Friends</div>
         </a>
     </div>
 </div>
+<script>
+    function addcom(e,id){
+    var cs=e.srcElement.parentElement.children
+    var username=document.getElementById("lusername").value
+    var comm;
+    var inp;
+    for(let i of cs)
+    {
+      if(i.type=="text")
+      {
+        inp=i
+        comm=i.value
+      }
+    }
+    var url="addcomment?id="+id+"&comm="+comm+"&user="+username
+     fetch(url).then(res=>res.text()).then(data=>{
+         if(data=="True"){
+           inp.value=""
+           window.location.reload()
+         }
+     })
+    }
+
+  document.querySelectorAll(".commen").forEach(ele=>{
+     ele.addEventListener("click",(e)=>{
+     var id;
+       for(let k of e.srcElement.parentElement.children){
+         if(k.type=="hidden")
+         {
+           id=k.value
+         }
+       }
+        open(id);
+      })
+    })
+
+    function open(id){
+       document.getElementById("commk").style.visibility="visible";
+       var contain=document.getElementById("cmk");
+       var url="getcomment/1107?id="+id
+       fetch(url).then(res=>res.json()).then(data=>{
+       console.log(data)
+          for(let i of data){
+            var big=document.createElement("div")
+            var imcom=document.createElement("div")
+            var img=document.createElement("img")
+            var bigs=document.createElement("span")
+            var usa=document.createElement("a")
+            var sp=document.createElement("span")
+
+            img.src=i["dp"]
+            img.width="100%"
+            img.height="100%"
+            usa.innerHTML=i["username"]
+            usa.href="user/"+i["username"]
+            sp.innerHTML=i["content"]
+
+            imcom.appendChild(img)
+            bigs.appendChild(usa)
+            bigs.appendChild(sp)
+
+            big.appendChild(imcom)
+            big.appendChild(bigs)
+
+            contain.appendChild(big)
+          }
+       })
+    }
+</script>
 {% endblock %}
 
 {% block side %}
 <div class="side">
+
+    <div>
+
+    </div>
+
 </div>
 {% endblock %}
 

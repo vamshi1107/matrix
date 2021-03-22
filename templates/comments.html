@@ -1,0 +1,118 @@
+<style>
+       .bod{
+          position:fixed;
+          left:0px;
+          right:0px;
+          background-color:#0000007a;
+          top:0px;
+          bottom:0px;
+          opacity:80;
+          display:flex;
+          align-items:center;
+          visibility:hidden;
+          z-index:999;
+        }
+        body{
+         margin:0px;
+         padding:0px;
+        }
+         .container{
+          width:70vw;
+          height:80vh;
+          background-color:white;
+          margin-right:auto;
+          margin-left:auto;
+          border-radius:2px;
+        }
+        .ban{
+          height:60px;
+          border-bottom:.1px solid #dad8d8;
+          display:flex;
+          flex-direction:row;
+          justify-content:flex-end;
+          align-items:center;
+          padding-left:15px;
+        }
+       .clb{
+          font-size:30px;
+          cursor:pointer;
+          font-weight:bold;
+          transform:rotate(45deg);
+          width:40px;
+          height:40px;
+          margin:20px;
+          float:right;
+           display:flex;
+          flex-direction:row;
+          align-items:center;
+          margin-top:30px;
+        }
+        .commencon{
+          width:100%;
+          height:82%;
+          overflow-y:auto;
+          padding:20px;
+        }
+        .commencon::-webkit-scrollbar{
+          width:0px;
+        }
+        .commencon > div{
+          width:100%;
+          display:flex;
+          flex-direction:row;
+          align-items:center;
+          border:.1px solid #dad8d8;
+          padding:5px;
+        }
+        .commencon > div > span > a{
+          width:70%;
+          font-size:18px;
+          font-weight:bold;
+          margin-left:20px;
+          text-decoration:none;
+        }
+         .commencon > div > span > span{
+          font-size:16px;
+          text-decoration:none;
+          word-break:break-word;
+          height:auto;
+        }
+         .commencon > div > span {
+            width:80%;
+            display:flex;
+            flex-direction:row;
+            align-items:center;
+            justify-content:space-around;
+        }
+         .commencon > div > div{
+          width:60px;
+          height:60px;
+          border-radius:50%;
+        }
+         .commencon > div > div > img{
+          width:100%;
+          height:100%;
+        }
+         .commencon > div > span >p{
+          width:100%;
+          font-size:16px;
+          margin-left:20px;
+        }
+</style>
+
+<div class="bod" id="commk">
+  <div class="container">
+     <div class="ban">
+          <div onclick="cls()" class="clb" id="c1">+</div>
+     </div>
+      <div class="commencon" id="cmk">
+
+      </div>
+  </div>
+</div>
+<script>
+     function cls(e){
+           document.getElementById("commk").style.visibility="hidden";
+     }
+
+</script>

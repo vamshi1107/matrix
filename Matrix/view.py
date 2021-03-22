@@ -10,10 +10,13 @@ def index(request):
         return  redirect("login")
     ul = list(relation.objects.filter(user1=request.session.get("user", "")).values_list("user2", flat=True)) + \
          list(relation.objects.filter(user2=request.session.get("user", "")).values_list("user1", flat=True))
+    lou=request.session["user"]
     pl=[]
     for i in post.objects.all()[::-1]:
         if i.user in ul:
             d = {}
+            d["comments"]=comment.objects.filter(postid=i.id)
+            d["ncom"]=len(comment.objects.filter(postid=i.id))
             d["post"]=i
             v=member.objects.filter(username=i.user)
             dp = displaypic.objects.filter(user=i.user)
@@ -25,7 +28,7 @@ def index(request):
             if len(v)>0:
                d["user"]=v[0]
             pl.append(d)
-    return render(request,"container.html",context={"posts":pl})
+    return render(request,"container.html",context={"posts":pl,"user":lou})
 
 def profile(request):
     if not request.session.get("login", False):
@@ -254,3 +257,32 @@ def validate(reuest,user):
         return HttpResponse("False")
     else:
         return HttpResponse("True")
+
+def add_comment(request):
+    id = request.GET["id"]
+    user = request.GET["user"]
+    comm = request.GET["comm"]
+    c=comment(user=user,content=comm,postid=id)
+    c.save()
+    return HttpResponse("True")
+
+def get_comment(request,code):
+    if code==1107:
+        id = request.GET["id"]
+        c=[]
+        comms=comment.objects.filter(postid=id)
+        for i in comms:
+            d={}
+            d["content"]=i.content
+            u=member.objects.filter(username=i.user)
+            if len(u)>0:
+               d["username"]=u[0].username
+               dp  = displaypic.objects.filter(user=u[0].username)
+               if len(dp)>0:
+                    d["dp"]=dp[0].content
+               else:
+                    d["dp"] ="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
+            c.append(d)
+        return  JsonResponse(c,safe=False)
+    else:
+         return HttpResponse("False")
