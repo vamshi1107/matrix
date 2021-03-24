@@ -28,7 +28,34 @@ def index(request):
             if len(v)>0:
                d["user"]=v[0]
             pl.append(d)
-    return render(request,"container.html",context={"posts":pl,"user":lou})
+    loginu=member.objects.filter(username=lou)[0]
+    logindp=displaypic.objects.filter(user=lou)
+    if len(logindp)>0:
+        dp=logindp[0].content
+    else:
+        dp ="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
+
+    sugs=get_sugs(lou)[:5]
+    return render(request,"container.html",context={"posts":pl,"user":lou,"loginuser":loginu,"dp":dp,"sugs":sugs})
+
+def get_sugs(name):
+     ul = list(relation.objects.filter(user1=name).values_list("user2", flat=True)) + \
+         list(relation.objects.filter(user2=name).values_list("user1", flat=True))
+     l=[]
+     for i in ul:
+         il = list(relation.objects.filter(user1=i).values_list("user2", flat=True)) + \
+              list(relation.objects.filter(user2=i).values_list("user1", flat=True))
+         for j in il:
+             if j not in ul and not j==name:
+                d={}
+                d["user"]=member.objects.filter(username=j)[0]
+                dp = displaypic.objects.filter(user=j)
+                if len(dp) > 0:
+                   d["dp"] = dp[0].content
+                else:
+                   d["dp"] = "https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
+                l.append(d)
+     return l
 
 def profile(request):
     if not request.session.get("login", False):

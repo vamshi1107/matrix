@@ -45,15 +45,19 @@
        display:flex;
        justify-content:center;
        align-items:center;
-       font-size:25px;
-       font-family: 'Poppins', sans-serif;
+       font-size:26px;
+       font-family: 'sui-light';
       }
       .npost{
-  height:300px;
-  width:100%;
-  background-color:red;
-
-}
+         height:300px;
+         width:100%;
+     }
+     #u_name{
+        font-family: 'sui-semi-light';
+     }
+      #user_name{
+        font-family: 'sui-semi-bold';
+     }
       </style>
 
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
@@ -88,7 +92,7 @@
                     </div>
                  </div>
                  <div class="p_info">
-                      <div id="user_name">
+                      <div id="user_name" >
                           {{user.name}}
                       </div>
                      <div id="bio">
@@ -98,7 +102,7 @@
          </div>
     </div>
 <div class="u_posts">
-    <div class="npost"  id="createp" onclick="make(event)">
+    <div class="npost"  id="createp" onclick="make(event)" >
         <div>Add post</div>
     </div>
   {% for i in posts %}

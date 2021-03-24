@@ -25,6 +25,7 @@
     }
     .inv{
       font-size:25px;
+      font-family: 'sui-semi-light';
 
     }
     .uhin{
@@ -39,7 +40,7 @@
           margin-top:10px;
           font-size:15px;
           font-weight:bolder;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'sui-semi-bold';
     }
     .info{
       display:flex;
@@ -50,8 +51,7 @@
       margin:10px;
     }
     .ext{
-      font-family: 'Roboto', sans-serif;
-      font-weight:bolder;
+      font-family: 'sui-semi-bold';
       margin-right:15px;
     }
     .image{
@@ -60,8 +60,9 @@
     }
     .posbu{
       cursor:pointer;
-      color:blue;
+      color:#0095f6;
       font-size:18px;
+      font-family: 'sui-semi-bold';
     }
     .info{
       height:auto;
@@ -73,18 +74,21 @@
       min-height:700px;
     }
     .comhead{
-      margin:10px;
-      font-family: 'Roboto', sans-serif;
-      font-weight:bold;
+      margin-left:10px;
+      margin-top:10px;
+      font-family: 'sui-semi-bold';
       cursor:pointer;
     }
     .comcount{
       margin-left:15px;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'sui-semi-bold';
       font-weight:bold;
     }
     .commen{
       margin-top:15px;
+    }
+    .pos_cap{
+      font-family:'sui-semi-light';
     }
 </style>
 </div>
@@ -117,7 +121,7 @@
          </div>
          <div class="info">
              <div class="us_con"><span class="usname ext">{{i.user.name}}</span>
-             {{i.post.caption}}</div>
+                 <span class="pos_cap">{{i.post.caption}}</span></div>
          </div>
          <div class="commen">
              <input type="hidden" value="{{i.post.id}}">
@@ -214,11 +218,93 @@
 
 {% block side %}
 <div class="side">
+    <style>
+        .f_sug{
+          height:70%;
+          width:28vw;
+          margin-top:30px;
+          margin-left:3vw;
+        }
+        .o_user{
+          margin:2px;
+          height:80px;
+          display:flex;
+          flex-direction:row;
+          align-items:center;
+          background-color:#ffffff;
+          border-radius:10px;
+          border:.2px solid #dad8d8;
+        }
+        .o_uin{
+          margin-left:15px;
+           display:flex;
+          flex-direction:column;
+        }
+        .imk{
+          height:60px;
+          width:60px;
+          border-radius:50%;
+          margin:5px;
+        }
+        .o_un{
+          font-family:'sui-semi-bold';
+          font-size:18px;
+        }
+        .o_una{
+          font-family:'sui-semi-light';
+          font-size:16px;
+          color:#8e8e8e;
+        }
+        .sug_h{
+          font-family:'sui-semi-bold';
+          font-size:15px;
+          color:grey;
+          margin-left:10px;
+        }
+        .sug_con{
+          margin-top:10px;
+        }
+        .suggs{
+           margin-top:10px;
+           overflow-y:auto;
+           height:57vh;
+        }
+        .suggs::-webkit-scrollbar{
+          width:0px;
+        }
+        .o_un:hover{
+          color:#000;
+          text-decoration:line;
+        }
 
-    <div>
-
+    </style>
+    <div class="f_sug">
+       <div class="o_user">
+           <div class="imk">
+             <img src="{{dp}}" height="100%" width="100%">
+           </div>
+           <div class="o_uin">
+                <a class="o_un" href="user/{{loginuser.username}}">{{loginuser.username}}</a>
+                <span class="o_una">{{loginuser.name}}</span>
+           </div>
+       </div>
+        <div class="sug_con">
+          <span class="sug_h">Suggestions for you</span>
+            <div class="suggs">
+              {% for i in sugs %}
+                <div class="o_user">
+                     <div class="imk">
+                         <img src="{{i.dp}}" height="100%" width="100%">
+                     </div>
+                     <div class="o_uin">
+                            <a class="o_un" href="user/{{i.user.username}}">{{i.user.username}}</a>
+                            <span class="o_una">{{i.user.name}}</span>
+                     </div>
+                 </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-
 </div>
 {% endblock %}
 

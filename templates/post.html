@@ -88,15 +88,19 @@
           margin:10px 20px;
           height:50px;
           width:70%;
-          border-radius:5px;
-          border:.3px solid #dad8d8;
+          border:none;
+          border-bottom:.5px solid #dad8d8;
           outline:none;
+        }
+        #cap:focus{
+        border-bottom:.5px solid #000;
         }
         #pos{
          margin:20px 20px;
          color:blue;
          font-size:20px;
          cursor:pointer;
+         font-family:'sui-semi-bold';
         }
         #dpcon{
           width:40vw;
@@ -172,7 +176,7 @@
         .post_i{
           width:80%;
           height:70%;
-          border-radius:10px;
+          border-radius:1px;
           overflow:hidden;
           border:.1px solid #dad8d8;
           display:flex;
@@ -340,7 +344,7 @@
            <form action="/post" method="post" id="pform" autocomplete="off">
                {% csrf_token %}
              <div class="post_i" id="nps" onclick="upload()">
-                 <div id="ct">Upload Image</div>
+                 <div id="ct">Add Image</div>
                  <img width="100%" height="100%" alt="" src="" id="pimg" style="display:none">
                  <input type="file" style="display:none" id="finp" onchange="selected()">
                  <input type="hidden" value="{{user.username}}" id="username" name="user">
