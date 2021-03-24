@@ -1,4 +1,4 @@
-      <style>
+ <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap');
 
         .bod{
@@ -190,7 +190,7 @@
 
 
 </style>
-  <style>
+ <style>
              @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap');
         .container{
           width:70vw;
@@ -229,6 +229,7 @@
           justify-content:space-between;
           align-items:center;
           padding-left:15px;
+          width:100%;
         }
         .uc_o{
           height:60px;
@@ -253,11 +254,11 @@
           width:40px;
           height:40px;
           margin:20px;
-          float:right;
-           display:flex;
+          display:flex;
           flex-direction:row;
           align-items:center;
           margin-top:30px;
+          position:relative;
         }
         .ubcon{
           width:100%;
@@ -271,18 +272,14 @@
         }
         .uk{
           margin-top:10px;
-          margin-left:20px;
-          font-size:17px;
-          font-family: 'Poppins', sans-serif;
-        }
-        .captio{
-          word-wrap:break-word;
-          margin:10px;
-        }
-        #post_caption{
+          padding-left:20px;
           font-size:17px;
           font-family: 'Poppins', sans-serif;
           border-bottom:.1px solid #dad8d8;
+        }
+        .captio{
+          word-wrap:break-word;
+          margin-left:10px;
         }
         .rbkc{
           border:0.1px solid grey;
@@ -292,12 +289,51 @@
           font-weight:bold;
           color:#000000;
           width:auto;
-          padding-left:5px;
-          padding-right:5px;
           margin:5px;
           cursor:pointer;
+          text-align:center;
         }
     </style>
+ <style>
+  .o_con > div{
+     display:flex;
+     flex-direction:row;
+     padding:5px;
+     border-bottom:.1px solid #dad8d8;
+  }
+   .o_con > div > span{
+     display:flex;
+     flex-direction:column;
+     margin-left:15px;
+     width:70%;
+  }
+   .o_con > div > span >a{
+     font-size:16px;
+     font-family:'sui-semi-bold';
+  }
+  .o_con > div > span > span{
+     font-size:14px;
+     font-family:'sui-light';
+     margin-left:15px;
+     word-break:break-word;
+     height:auto;
+  }
+  .o_con > div > div{
+     height:50px;
+     width:50px;
+     border-radius:50%;
+  }
+  .o_con > div > div >img{
+     height:100%;
+     width:100%;
+  }
+  .o_con::-webkit-scrollbar{
+          width:0px;
+   }
+   .ubcon::-webkit-scrollbar{
+          width:0px;
+   }
+ </style>
 <div class="bod" id="pc">
       <div class="container" id="con1">
            <div class="prog" id="pr1"></div>
@@ -318,19 +354,35 @@
                       <div class="ubm">
                         {{user.username}}
                       </div>
-                       <div onclick="rempost()" class="rbkc">remove</div>
                    </div>
                    <div onclick="cls()" class="clb" id="c1">+</div>
                </div>
               <div class="ubcon">
                   <div class="capic">
-                      <input type="hidden" id="postid">
-<!--                     <span class="uk">{{user.name}}</span>-->
-                      <div class="captio" id="post_caption">
-
+                     <input type="hidden" id="postid" >
+<!--                     <span class="uk" style="display:flex;flex-direction:row; padding:0px;">-->
+<!--                         <span  style="font-size:16px;font-family:'sui-semi-bold';">{{user.name}}</span>-->
+<!--                         <span class="captio" id="post_caption"  style="font-size:16px;font-family:'sui-light';"></span>-->
+<!--                     </span>-->
+                      <div class="o_con" id="comusk">
+                        <div>
+                            <div>
+                             {% if dpfound %}
+                                       <img src="{{dp.content}}" height="100%" width="100%">
+                             {% endif %}
+                             {% if not dpfound %}
+                                       <img src="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" height="100%" width="100%">
+                              {% endif %}
+                           </div>
+                           <span>
+                             <a>{{user.username}}</a>
+                             <span id="post_caption"></span>
+                           </span>
+                         </div>
                       </div>
                   </div>
               </div>
+             <div onclick="rempost()" class="rbkc">remove</div>
           </div>
       </div>
 </div>

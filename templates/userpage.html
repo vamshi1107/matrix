@@ -184,6 +184,34 @@
        fetch(url).then(res=>res.text()).then(data=>{
                  document.getElementById("post_caption").innerHTML=data
        })
+       var uxk="/getcomment/1107?id="+id;
+       var contain=document.getElementById("comusk")
+       fetch(uxk).then(res=>res.json()).then(data=>{
+          for(let i of data){
+            var big=document.createElement("div")
+            var imcom=document.createElement("div")
+            var img=document.createElement("img")
+            var bigs=document.createElement("span")
+            var usa=document.createElement("a")
+            var sp=document.createElement("span")
+
+            img.src=i["dp"]
+            img.width="100%"
+            img.height="100%"
+            usa.innerHTML=i["username"]
+            usa.href="user/"+i["username"]
+            sp.innerHTML=i["content"]
+
+            imcom.appendChild(img)
+            bigs.appendChild(usa)
+            bigs.appendChild(sp)
+
+            big.appendChild(imcom)
+            big.appendChild(bigs)
+
+            contain.appendChild(big)
+          }
+       })
     }
     </script>
 </div>
