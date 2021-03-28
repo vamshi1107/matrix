@@ -134,6 +134,13 @@ def search(request):
     return  render(request,"search.html")
 
 def userpage(request,user):
+    u1=request.session.get("user", "")
+    u2=user
+    rsk=req.objects.filter(To=u1, From=u2)
+    if len(rsk)>0:
+        got=True
+    else:
+        got=False
     u=member.objects.filter(username=user)
     check = req.objects.filter(To=user, From=request.session["user"])
     ul = list(relation.objects.filter(user1=request.session.get("user", "")).values_list("user2", flat=True)) + \
@@ -165,7 +172,7 @@ def userpage(request,user):
                                                "loguser":request.session["user"],
                                                "requested":requested,"friend":friend,"posts":pl,
                                                "nposts":len(pl),"nfriends":len(uf),
-                                               "dp":dk,"dpfound":dp_found
+                                               "dp":dk,"dpfound":dp_found,"got":got
                                                })
     else:
         return redirect("search")
@@ -173,7 +180,9 @@ def userpage(request,user):
 
 def friends(request):
     res=req.objects.filter(To=request.session.get("user","")).values_list('From', flat=True)
-    us=member.objects.filter(username__icontains=res)
+    us=[]
+    for i in res:
+        us+=member.objects.filter(username=i)
     ul=list(relation.objects.filter(user1=request.session.get("user","")).values_list("user2",flat=True))+\
              list(relation.objects.filter(user2=request.session.get("user","")).values_list("user1",flat=True))
     flist=[]
@@ -204,9 +213,8 @@ def add_friend(request):
         return HttpResponse("True")
     r=relation(user1=u1,user2=u2)
     r.save()
-    ck=req.objects.filter(To=u2, From=u1)
-    if len(ck)>0:
-           req.objects.filter(To=u2,From=u1).delete()
+    req.objects.filter(To=u2,From=u1).delete()
+    req.objects.filter(To=u1,From=u2).delete()
     return HttpResponse("True")
 
 

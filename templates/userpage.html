@@ -87,6 +87,21 @@
             }
           })
         }
+         function add(e){
+              var to=document.getElementById("us").value
+              var fr=document.getElementById("lu").value
+              var url="/add?user1="+fr+"&user2="+to
+              fetch(url).then(res=>res.text()).then(data=>{
+                   if(data=="True"){
+                      var b=e.srcElement
+                      b.style.backgroundColor="#fafafa"
+                      b.innerHTML="added"
+                      b.style.border="0.1px solid grey"
+                      b.style.color="#000000"
+                      window.location.reload()
+                   }
+              })
+            }
     </script>
     <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
     {% include 'post2.html' %}
@@ -111,11 +126,16 @@
                      <div>
                          <input type="hidden" value="{{user.username}}" id="us">
                          <input type="hidden" value="{{loguser}}" id="lu">
-                         {% if not requested %}
+                         {% if not friend %}
+                           {% if not requested and not got %}
                             <button class="add_b" onclick="request()" id="abd">Add friend</button>
-                         {% endif %}
-                         {% if requested %}
+                           {% endif %}
+                           {% if  got %}
+                            <button class="add_b" onclick="add(event)" >accept</button>
+                           {% endif %}
+                           {% if requested %}
                             <button class="added_b" >requested</button>
+                           {% endif %}
                          {% endif %}
                      </div>
                      {% endif %}
@@ -125,9 +145,6 @@
                          <input type="hidden" value="{{loguser}}" id="rlu">
                          {% if not requested %}
                             <button class="added_b" onclick="remove()">remove</button>
-                         {% endif %}
-                         {% if requested %}
-                            <button class="added_b" >requested</button>
                          {% endif %}
                      </div>
                      {% endif %}
