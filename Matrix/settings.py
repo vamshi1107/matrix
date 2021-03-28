@@ -75,12 +75,12 @@ WSGI_APPLICATION = 'Matrix.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -93,6 +93,17 @@ DATABASES = {
 #     }
 # }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'Matrix',
+        'CLIENT':{
+        'host':  'mongodb://vamshi1107:Avk1234.@cluster0-shard-00-00.zd8b7.mongodb.net:27017,cluster0-shard-00-01.zd8b7.mongodb.net:27017,cluster0-shard-00-02.zd8b7.mongodb.net:27017/Matrix?ssl=true&replicaSet=atlas-35ikta-shard-0&authSource=admin&retryWrites=true&w=majority',
+        'username':'vamshi1107',
+        'password':'Avk1234.',
+        }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
