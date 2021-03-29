@@ -204,6 +204,7 @@
        var uxk="/getcomment/1107?id="+id;
        var contain=document.getElementById("comusk")
        fetch(uxk).then(res=>res.json()).then(data=>{
+          contain.innerHTML=""
           for(let i of data){
             var big=document.createElement("div")
             var imcom=document.createElement("div")
