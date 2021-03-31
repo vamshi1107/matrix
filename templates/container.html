@@ -159,6 +159,7 @@
         comm=i.value
       }
     }
+    if(comm.replaceAll(" ","")!=""){
     var url="addcomment?id="+id+"&comm="+comm+"&user="+username
      fetch(url).then(res=>res.text()).then(data=>{
          if(data=="True"){
@@ -166,6 +167,7 @@
            window.location.reload()
          }
      })
+     }
     }
 
   document.querySelectorAll(".commen").forEach(ele=>{

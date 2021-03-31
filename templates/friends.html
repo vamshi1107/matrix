@@ -12,14 +12,20 @@
       }
         .req_c{
           background-color:#ffffff;
-          width:50vw;
+          width:52vw;
           padding-top:.5vw;
           padding-bottom:.5vw;
           height:40vh;
           border-radius:5px;
           margin-bottom:30px;
           border:.1px solid #dad8d8;
+          overflow-y:auto;
+          padding-left:5px;
+          padding-right:5px;
         }
+        .req_c::-webkit-scrollbar{
+        width:0px;
+      }
         .requ{
           margin-left:auto;
           margin-right:auto;
@@ -90,7 +96,7 @@
        text-decoration:none;
       }
       .requ:hover{
-        background-color:#f0e3e3;
+        background-color:#fafafa;
       }
 
     </style>
@@ -122,6 +128,12 @@
               })
             }
         </script>
+        <style>
+            .con{
+              padding:10px;
+              overflow-y:auto;
+            }
+        </style>
         <div class="req_c">
              <div class="req_t">
              Requests
