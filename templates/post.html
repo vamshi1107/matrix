@@ -333,6 +333,37 @@
    .ubcon::-webkit-scrollbar{
           width:0px;
    }
+   .comm{
+  width:100%;
+  height:55px;
+  display:flex;
+ flex-direction:row;
+ align-items:center;
+ border-top:.2px solid #dad8d8;
+ border-bottom:.2px solid #dad8d8;
+ padding:10px 10px;
+
+}
+.smi{
+width:60px;
+   display:flex;
+ flex-direction:row;
+ align-items:center;
+ justify-content:center;
+}
+.comment{
+  width:100%;
+  height:90%;
+  outline:none;
+  border:none;
+  font-size:16px;
+}
+.posbu{
+      cursor:pointer;
+      color:#0095f6;
+      font-size:18px;
+      font-family: 'sui-semi-bold';
+    }
  </style>
 <div class="bod" id="pc">
       <div class="container" id="con1">
@@ -385,7 +416,17 @@
                       </div>
                   </div>
               </div>
-             <div onclick="rempost()" class="rbkc">remove</div>
+              <input id="lusername" value="{{userid}}" style="display:none">
+               <div onclick="rempost()" class="rbkc">remove</div>
+               <footer style="bottom:0px;">
+                    <div class="comm">
+                       <div class="smi">
+                           <svg aria-label="Emoji" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M24 48C10.8 48 0 37.2 0 24S10.8 0 24 0s24 10.8 24 24-10.8 24-24 24zm0-45C12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21S35.6 3 24 3z"></path><path d="M34.9 24c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5zm-21.8 0c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5zM24 37.3c-5.2 0-8-3.5-8.2-3.7-.5-.6-.4-1.6.2-2.1.6-.5 1.6-.4 2.1.2.1.1 2.1 2.5 5.8 2.5 3.7 0 5.8-2.5 5.8-2.5.5-.6 1.5-.7 2.1-.2.6.5.7 1.5.2 2.1 0 .2-2.8 3.7-8 3.7z"></path></svg>
+                       </div>
+                     <input type="text" class="comment" placeholder="Add comment">
+                     <div class="posbu" onclick="addcom(event)">Post</div>
+                    </div>
+                </footer>
           </div>
       </div>
 </div>
@@ -563,6 +604,30 @@
        })
      }
      }
+
+      function addcom(e){
+           var id=document.getElementById("postid").value
+           var cs=e.srcElement.parentElement.children
+           var username=document.getElementById("lusername").value
+           var comm;
+           var inp;
+           for(let i of cs){
+                if(i.type=="text")
+                 {
+                   inp=i
+                   comm=i.value
+                 }
+            }
+           if(comm.replaceAll(" ","")!=""){
+              var url="/addcomment?id="+id+"&comm="+comm+"&user="+username
+              fetch(url).then(res=>res.text()).then(data=>{
+                   if(data=="True"){
+                      inp.value=""
+                      window.location.reload()
+                    }
+               })
+            }
+       }
  </script>
  <script>
 if ( window.history.replaceState ) {

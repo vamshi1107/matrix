@@ -77,7 +77,8 @@ def profile(request):
         dp_found = False
     if len(u)>0:
         loguser=u[0]
-        return render(request,"profile.html",context={"user":loguser,"friends":len(ul),"posts":pl,"nposts":len(pl),"dp":dk,"dpfound":dp_found})
+        loguserid=request.session["user"]
+        return render(request,"profile.html",context={"user":loguser,"userid":loguserid,"friends":len(ul),"posts":pl,"nposts":len(pl),"dp":dk,"dpfound":dp_found})
     else:
         request.session.flush()
         return redirect("login")
@@ -90,8 +91,6 @@ def login(request):
           if len(o) >0:
               request.session["login"]=True
               request.session.set_expiry(0)
-              print(request.session.get_expire_at_browser_close())
-              print(request.session.get_expiry_date())
               request.session["user"]=u
               return redirect("index")
           else:
@@ -170,6 +169,7 @@ def userpage(request,user):
             iu=False
         return render(request,"userpage.html",{"user":u[0],"isuser":iu,
                                                "loguser":request.session["user"],
+                                               "userid":request.session["user"],
                                                "requested":requested,"friend":friend,"posts":pl,
                                                "nposts":len(pl),"nfriends":len(uf),
                                                "dp":dk,"dpfound":dp_found,"got":got
