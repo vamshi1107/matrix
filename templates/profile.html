@@ -5,173 +5,184 @@
 {% block body%}
 {% include 'post.html' %}
 <div class="prf" style="height:90vh">
-    <style>
-    .prf{
-     margin-right:auto;
-     margin-left:auto;
-       width:70vw;
-      background-color:#fafafa;
-     height:90vh;
-     }
+  <style>
+    .prf {
+      margin-right: auto;
+      margin-left: auto;
+      width: 70vw;
+      background-color: #fafafa;
+      height: 90vh;
+    }
 
-      .post{
-         background-color:#ffffff;
-      }
-        #bio{
-          margin-top:6px;
-          font-size:15px;
-          font-family: 'Poppins', sans-serif;
-          font-weight:bold;
-          width:400px;
-          word-break:break-word;
-          margin-bottom:20px;
-          height:80px;
-          overflow-y:auto;
-      }
-      #bio::-webkit-scrollbar{
-        width:10px;
-      }
-      .info{
-           height:auto;
-        padding-bottom:20px;
-        padding-top:20px;
-      }
-      .u_posts{
-        margin-bottom:50px;
-      }
-      #createp{
-       background-color:#ffffff;
-       border:0.1px solid #dad8d8;
-       display:flex;
-       justify-content:center;
-       align-items:center;
-       font-size:26px;
-       font-family: 'sui-light';
-      }
-      .npost{
-         height:300px;
-         width:100%;
-     }
-     #u_name{
-        font-family: 'sui-semi-light';
-     }
-      #user_name{
-        font-family: 'sui-semi-bold';
-     }
-     @media screen and (max-width:800px){
-         .u_posts{
-            grid-template-columns:50% 50%;
-            }
-       }
-      </style>
+    .post {
+      background-color: #ffffff;
+    }
 
-    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
-    <div class="info">
-        {% if dpfound %}
-         <div class="up" onclick="opendp()" style="overflow:hidden;background-color:transparent;">
-             <img src="{{dp.content}}" height="100%" width="100%">
-         </div>
-        {% endif %}
+    #bio {
+      margin-top: 6px;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      width: 400px;
+      word-break: break-word;
+      margin-bottom: 20px;
+      height: 80px;
+      overflow-y: auto;
+    }
 
-        {% if not dpfound %}
-        <div class="up" onclick="opendp()" style="overflow:hidden;background-color:transparent;">
-             <img src="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" height="100%" width="100%">
-         </div>
-         {% endif %}
-         <div class="dete">
-                 <div id="u_name">
-                    {{user.username}}
-                 </div>
-                 <div id="u_inf">
-                    <div class="del">
-                     <span class="ans">{{friends}}</span>
-                        <span class="heading">
-                            <a href="/userfriends/{{user.username}}" style="text-decoration:none">
-                                Friends
-                                </a>
-                        </span>
-                    </div>
-                     <div class="del">
-                        <span class="ans">{{nposts}}</span>
-                        <span class="heading">Posts</span>
-                    </div>
-                 </div>
-                 <div class="p_info">
-                      <div id="user_name" >
-                          {{user.name}}
-                      </div>
-                     <div id="bio">
+    #bio::-webkit-scrollbar {
+      width: 10px;
+    }
 
-                     </div>
-                 </div>
-         </div>
+    .info {
+      height: auto;
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+
+    .u_posts {
+      margin-bottom: 50px;
+    }
+
+    #createp {
+      background-color: #ffffff;
+      border: 0.1px solid #dad8d8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      font-family: 'sui-light';
+    }
+
+    .npost {
+      height: 300px;
+      width: 100%;
+    }
+
+    #u_name {
+      font-family: 'sui-semi-light';
+    }
+
+    #user_name {
+      font-family: 'sui-semi-bold';
+    }
+
+    @media screen and (max-width:800px) {
+      .u_posts {
+        grid-template-columns: 50% 50%;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+  <div class="info">
+    {% if dpfound %}
+    <div class="up" onclick="opendp()" style="overflow:hidden;background-color:transparent;">
+      <img src="{{dp.content}}" height="100%" width="100%">
     </div>
-<div class="u_posts">
-    <div class="npost"  id="createp" onclick="make(event)" >
-        <div>Add post</div>
+    {% endif %}
+
+    {% if not dpfound %}
+    <div class="up" onclick="opendp()" style="overflow:hidden;background-color:transparent;">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/databasedemo-458be.appspot.com/o/img.jpg?alt=media&token=066341e5-fa12-4f64-893e-4151dafe541d"
+        height="100%" width="100%">
     </div>
-  {% for i in posts %}
-    <div class="post" >
-       <img src="{{ i.content}}" width="100%" height="100%" >
-        <input type="text" value="{{i.id}}" style="display:none;">
+    {% endif %}
+    <div class="dete">
+      <div id="u_name">
+        {{user.username}}
+      </div>
+      <div id="u_inf">
+        <div class="del">
+          <span class="ans">{{friends}}</span>
+          <span class="heading">
+            <a href="/userfriends/{{user.username}}" style="text-decoration:none">
+              Friends
+            </a>
+          </span>
+        </div>
+        <div class="del">
+          <span class="ans">{{nposts}}</span>
+          <span class="heading">Posts</span>
+        </div>
+      </div>
+      <div class="p_info">
+        <div id="user_name">
+          {{user.name}}
+        </div>
+        <div id="bio">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="u_posts">
+    <div class="npost" id="createp" onclick="make(event)">
+      <div>Add post</div>
+    </div>
+    {% for i in posts %}
+    <div class="post">
+      <img src="{{ i.content}}" width="100%" height="100%">
+      <input type="text" value="{{i.id}}" style="display:none;">
     </div>
     {% endfor %}
-</div>
+  </div>
 </div>
 <script>
-    document.querySelectorAll(".post").forEach(ele=>{
-      ele.addEventListener("click",(e)=>{
-      var c=e.srcElement.parentElement.children
+  document.querySelectorAll(".post").forEach(ele => {
+    ele.addEventListener("click", (e) => {
+      var c = e.srcElement.parentElement.children
       var id;
-       for(let i of c){
-           if(i.type=="text"){
-              id=i.value
-           }
-       }
-        open(e.srcElement.src,id);
-      })
+      for (let i of c) {
+        if (i.type == "text") {
+          id = i.value
+        }
+      }
+      open(e.srcElement.src, id);
     })
-    function open(url,id){
-       document.getElementById("pc").style.visibility="visible";
-       document.getElementById("sho").src=url;
-       document.getElementById("postid").value=id;
-       var url="caption/"+id
-       fetch(url).then(res=>res.text()).then(data=>{
-                 document.getElementById("post_caption").innerHTML=data
-       })
+  })
+  function open(url, id) {
+    document.getElementById("pc").style.visibility = "visible";
+    document.getElementById("sho").src = url;
+    document.getElementById("postid").value = id;
+    var url = "caption/" + id
+    fetch(url).then(res => res.text()).then(data => {
+      document.getElementById("post_caption").innerHTML = data
+    })
 
-       var uxk="getcomment/1107?id="+id;
-       var contain=document.getElementById("comusk")
-        fetch(uxk).then(res=>res.json()).then(data=>{
-          contain.innerHTML=""
-          for(let i of data){
-            var big=document.createElement("div")
-            var imcom=document.createElement("div")
-            var img=document.createElement("img")
-            var bigs=document.createElement("span")
-            var usa=document.createElement("a")
-            var sp=document.createElement("span")
+    var uxk = "getcomment/1107?id=" + id;
+    var contain = document.getElementById("comusk")
+    fetch(uxk).then(res => res.json()).then(data => {
+      contain.innerHTML = ""
+      for (let i of data) {
+        var big = document.createElement("div")
+        var imcom = document.createElement("div")
+        var img = document.createElement("img")
+        var bigs = document.createElement("span")
+        var usa = document.createElement("a")
+        var sp = document.createElement("span")
 
-            img.src=i["dp"]
-            img.width="100%"
-            img.height="100%"
-            usa.innerHTML=i["username"]
-            usa.href="/user/"+i["username"]
-            sp.innerHTML=i["content"]
+        img.src = i["dp"]
+        img.width = "100%"
+        img.height = "100%"
+        usa.innerHTML = i["username"]
+        usa.href = "/user/" + i["username"]
+        sp.innerHTML = i["content"]
 
-            imcom.appendChild(img)
-            bigs.appendChild(usa)
-            bigs.appendChild(sp)
+        imcom.appendChild(img)
+        bigs.appendChild(usa)
+        bigs.appendChild(sp)
 
-            big.appendChild(imcom)
-            big.appendChild(bigs)
+        big.appendChild(imcom)
+        big.appendChild(bigs)
 
-            contain.appendChild(big)
-          }
-       })
-    }
-     function opendp(){
-       document.getElementById("dpin").style.visibility="visible";
-    }
+        contain.appendChild(big)
+      }
+    })
+  }
+  function opendp() {
+    document.getElementById("dpin").style.visibility = "visible";
+  }
 </script>
 {% endblock %}

@@ -33,7 +33,7 @@ def index(request):
     if len(logindp)>0:
         dp=logindp[0].content
     else:
-        dp ="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
+        dp ="https://firebasestorage.googleapis.com/v0/b/databasedemo-458be.appspot.com/o/img.jpg?alt=media&token=066341e5-fa12-4f64-893e-4151dafe541d"
 
     sugs=get_sugs(lou)[:5]
     return render(request,"container.html",context={"posts":pl,"user":lou,"loginuser":loginu,"dp":dp,"sugs":sugs})
@@ -53,7 +53,7 @@ def get_sugs(name):
                 if len(dp) > 0:
                    d["dp"] = dp[0].content
                 else:
-                   d["dp"] = "https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
+                   d["dp"] = "https://firebasestorage.googleapis.com/v0/b/databasedemo-458be.appspot.com/o/img.jpg?alt=media&token=066341e5-fa12-4f64-893e-4151dafe541d"
                 l.append(d)
      return l
 
@@ -316,7 +316,7 @@ def get_comment(request,code):
                if len(dp)>0:
                     d["dp"]=dp[0].content
                else:
-                    d["dp"] ="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
+                    d["dp"] ="https://firebasestorage.googleapis.com/v0/b/databasedemo-458be.appspot.com/o/img.jpg?alt=media&token=066341e5-fa12-4f64-893e-4151dafe541d"
             c.append(d)
         return  JsonResponse(c,safe=False)
     else:

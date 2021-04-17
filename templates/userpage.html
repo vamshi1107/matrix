@@ -4,234 +4,243 @@
 
 {% block body%}
 <div class="prf">
-    <style>
-        #bio{
-          margin-top:6px;
-          font-size:15px;
-          font-family: 'Poppins', sans-serif;
-          font-weight:bold;
-          width:400px;
-          word-break:break-word;
-          margin-bottom:20px;
-          height:80px;
-          overflow-y:auto;
-      }
-      #bio::-webkit-scrollbar{
-        width:10px;
-      }
-      .info{
-           height:auto;
-        padding-bottom:20px;
-        padding-top:20px;
-      }
-      .ext{
-          display:flex;
-         flex-direction:row;
-        justify-content:space-between;
-         align-items:center;
-         width:300px;
-      }
-      .add_b{
-          border:none;
-          font-size:15px;
-          height:30px;
-          border-radius:5px;
-          font-weight:bold;
-          background-color:#0095f6;
-          color:#ffffff;
-      }
-      .added_b{
-          border:0.1px solid grey;
-          font-size:15px;
-          height:30px;
-          border-radius:5px;
-          font-weight:bold;
-          background-color:#fafafa;
-          color:#000000;
-      }
+  <style>
+    #bio {
+      margin-top: 6px;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      width: 400px;
+      word-break: break-word;
+      margin-bottom: 20px;
+      height: 80px;
+      overflow-y: auto;
+    }
 
-      .post{
-         background-color:#ffffff;
-      }
-      .u_posts{
-        margin-bottom:50px;
-      }
-      #createp{
-       background-color:#ffffff;
-      }
-    </style>
-    <script>
-        function request(){
-          from=document.getElementById("lu").value
-          to=document.getElementById("us").value
-          var url="/req?From="+from+"&To="+to
-          fetch(url).then(res=>res.text()).then(data=>{
-          console.log(data)
-            if(data=="True"){
-              var b=document.getElementById("abd")
-              b.style.backgroundColor="#fafafa"
-              b.innerHTML="requested"
-              b.style.border="0.1px solid grey"
-              b.style.color="#000000"
-            }
-          })
+    #bio::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .info {
+      height: auto;
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+
+    .ext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 300px;
+    }
+
+    .add_b {
+      border: none;
+      font-size: 15px;
+      height: 30px;
+      border-radius: 5px;
+      font-weight: bold;
+      background-color: #0095f6;
+      color: #ffffff;
+    }
+
+    .added_b {
+      border: 0.1px solid grey;
+      font-size: 15px;
+      height: 30px;
+      border-radius: 5px;
+      font-weight: bold;
+      background-color: #fafafa;
+      color: #000000;
+    }
+
+    .post {
+      background-color: #ffffff;
+    }
+
+    .u_posts {
+      margin-bottom: 50px;
+    }
+
+    #createp {
+      background-color: #ffffff;
+    }
+  </style>
+  <script>
+    function request() {
+      from = document.getElementById("lu").value
+      to = document.getElementById("us").value
+      var url = "/req?From=" + from + "&To=" + to
+      fetch(url).then(res => res.text()).then(data => {
+        console.log(data)
+        if (data == "True") {
+          var b = document.getElementById("abd")
+          b.style.backgroundColor = "#fafafa"
+          b.innerHTML = "requested"
+          b.style.border = "0.1px solid grey"
+          b.style.color = "#000000"
         }
-        function remove(){
-          from=document.getElementById("rlu").value
-          to=document.getElementById("rus").value
-          var url="/remove?u1="+from+"&u2="+to
-          fetch(url).then(res=>res.text()).then(data=>{
-          console.log(data)
-            if(data=="True"){
-              window.location.reload()
-            }
-          })
+      })
+    }
+    function remove() {
+      from = document.getElementById("rlu").value
+      to = document.getElementById("rus").value
+      var url = "/remove?u1=" + from + "&u2=" + to
+      fetch(url).then(res => res.text()).then(data => {
+        console.log(data)
+        if (data == "True") {
+          window.location.reload()
         }
-         function add(e){
-              var to=document.getElementById("us").value
-              var fr=document.getElementById("lu").value
-              var url="/add?user1="+fr+"&user2="+to
-              fetch(url).then(res=>res.text()).then(data=>{
-                   if(data=="True"){
-                      var b=e.srcElement
-                      b.style.backgroundColor="#fafafa"
-                      b.innerHTML="added"
-                      b.style.border="0.1px solid grey"
-                      b.style.color="#000000"
-                      window.location.reload()
-                   }
-              })
-            }
-    </script>
-    <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
-    {% include 'post2.html' %}
-    <div class="info">
-           {% if dpfound %}
-         <div class="up"  style="overflow:hidden;background-color:transparent;">
-             <img src="{{dp.content}}" height="100%" width="100%">
-         </div>
-        {% endif %}
-
-        {% if not dpfound %}
-        <div class="up"  style="overflow:hidden;background-color:transparent;">
-             <img src="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" height="100%" width="100%">
-         </div>
-         {% endif %}
-         <div class="dete">
-                 <div class="ext">
-                     <div id="u_name">
-                          {{user.username}}
-                     </div>
-                     {% if not isuser and not friend %}
-                     <div>
-                         <input type="hidden" value="{{user.username}}" id="us">
-                         <input type="hidden" value="{{loguser}}" id="lu">
-                         {% if not friend %}
-                           {% if not requested and not got %}
-                            <button class="add_b" onclick="request()" id="abd">Add friend</button>
-                           {% endif %}
-                           {% if  got %}
-                            <button class="add_b" onclick="add(event)" >accept</button>
-                           {% endif %}
-                           {% if requested %}
-                            <button class="added_b" >requested</button>
-                           {% endif %}
-                         {% endif %}
-                     </div>
-                     {% endif %}
-                     {% if  friend %}
-                        <div>
-                         <input type="hidden" value="{{user.username}}" id="rus">
-                         <input type="hidden" value="{{loguser}}" id="rlu">
-                         {% if not requested %}
-                            <button class="added_b" onclick="remove()">remove</button>
-                         {% endif %}
-                     </div>
-                     {% endif %}
-                 </div>
-                 <div id="u_inf">
-                    <div class="del">
-                     <span class="ans">{{nfriends}}</span>
-                        <span class="heading">
-                            <a href="/userfriends/{{user.username}}" style="text-decoration:none">
-                                Friends
-                                </a>
-                        </span>
-                    </div>
-                     <div class="del">
-                        <span class="ans">{{nposts}}</span>
-                        <span class="heading">Posts</span>
-                    </div>
-                 </div>
-                 <div class="p_info">
-                      <div id="user_name">
-                          {{user.name}}
-                      </div>
-                     <div id="bio">
-
-                     </div>
-                 </div>
-         </div>
+      })
+    }
+    function add(e) {
+      var to = document.getElementById("us").value
+      var fr = document.getElementById("lu").value
+      var url = "/add?user1=" + fr + "&user2=" + to
+      fetch(url).then(res => res.text()).then(data => {
+        if (data == "True") {
+          var b = e.srcElement
+          b.style.backgroundColor = "#fafafa"
+          b.innerHTML = "added"
+          b.style.border = "0.1px solid grey"
+          b.style.color = "#000000"
+          window.location.reload()
+        }
+      })
+    }
+  </script>
+  <link rel="stylesheet" href="{% static 'css/userpage.css' %}">
+  {% include 'post2.html' %}
+  <div class="info">
+    {% if dpfound %}
+    <div class="up" style="overflow:hidden;background-color:transparent;">
+      <img src="{{dp.content}}" height="100%" width="100%">
     </div>
-<div class="u_posts">
-  {% for i in posts %}
-    <div class="post" >
-       <img src="{{ i.content}}" width="100%" height="100%">
-        <input type="text" value="{{i.id}}" style="display:none;">
+    {% endif %}
+
+    {% if not dpfound %}
+    <div class="up" style="overflow:hidden;background-color:transparent;">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/databasedemo-458be.appspot.com/o/img.jpg?alt=media&token=066341e5-fa12-4f64-893e-4151dafe541d"
+        height="100%" width="100%">
+    </div>
+    {% endif %}
+    <div class="dete">
+      <div class="ext">
+        <div id="u_name">
+          {{user.username}}
+        </div>
+        {% if not isuser and not friend %}
+        <div>
+          <input type="hidden" value="{{user.username}}" id="us">
+          <input type="hidden" value="{{loguser}}" id="lu">
+          {% if not friend %}
+          {% if not requested and not got %}
+          <button class="add_b" onclick="request()" id="abd">Add friend</button>
+          {% endif %}
+          {% if got %}
+          <button class="add_b" onclick="add(event)">accept</button>
+          {% endif %}
+          {% if requested %}
+          <button class="added_b">requested</button>
+          {% endif %}
+          {% endif %}
+        </div>
+        {% endif %}
+        {% if friend %}
+        <div>
+          <input type="hidden" value="{{user.username}}" id="rus">
+          <input type="hidden" value="{{loguser}}" id="rlu">
+          {% if not requested %}
+          <button class="added_b" onclick="remove()">remove</button>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      <div id="u_inf">
+        <div class="del">
+          <span class="ans">{{nfriends}}</span>
+          <span class="heading">
+            <a href="/userfriends/{{user.username}}" style="text-decoration:none">
+              Friends
+            </a>
+          </span>
+        </div>
+        <div class="del">
+          <span class="ans">{{nposts}}</span>
+          <span class="heading">Posts</span>
+        </div>
+      </div>
+      <div class="p_info">
+        <div id="user_name">
+          {{user.name}}
+        </div>
+        <div id="bio">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="u_posts">
+    {% for i in posts %}
+    <div class="post">
+      <img src="{{ i.content}}" width="100%" height="100%">
+      <input type="text" value="{{i.id}}" style="display:none;">
     </div>
     {% endfor %}
-</div>
-    <script>
-         document.querySelectorAll(".post").forEach(ele=>{
-     ele.addEventListener("click",(e)=>{
-      var c=e.srcElement.parentElement.children
-      var id;
-       for(let i of c){
-           if(i.type=="text"){
-              id=i.value
-           }
-       }
-        open(e.srcElement.src,id);
+  </div>
+  <script>
+    document.querySelectorAll(".post").forEach(ele => {
+      ele.addEventListener("click", (e) => {
+        var c = e.srcElement.parentElement.children
+        var id;
+        for (let i of c) {
+          if (i.type == "text") {
+            id = i.value
+          }
+        }
+        open(e.srcElement.src, id);
       })
     })
-    function open(url,id){
-       document.getElementById("pc").style.visibility="visible";
-       document.getElementById("sho").src=url;
-       document.getElementById("postid").value=id;
-       var url="/caption/"+id
-       fetch(url).then(res=>res.text()).then(data=>{
-                 document.getElementById("post_caption").innerHTML=data
-       })
-       var uxk="/getcomment/1107?id="+id;
-       var contain=document.getElementById("comusk")
-       fetch(uxk).then(res=>res.json()).then(data=>{
-          contain.innerHTML=""
-          for(let i of data){
-            var big=document.createElement("div")
-            var imcom=document.createElement("div")
-            var img=document.createElement("img")
-            var bigs=document.createElement("span")
-            var usa=document.createElement("a")
-            var sp=document.createElement("span")
+    function open(url, id) {
+      document.getElementById("pc").style.visibility = "visible";
+      document.getElementById("sho").src = url;
+      document.getElementById("postid").value = id;
+      var url = "/caption/" + id
+      fetch(url).then(res => res.text()).then(data => {
+        document.getElementById("post_caption").innerHTML = data
+      })
+      var uxk = "/getcomment/1107?id=" + id;
+      var contain = document.getElementById("comusk")
+      fetch(uxk).then(res => res.json()).then(data => {
+        contain.innerHTML = ""
+        for (let i of data) {
+          var big = document.createElement("div")
+          var imcom = document.createElement("div")
+          var img = document.createElement("img")
+          var bigs = document.createElement("span")
+          var usa = document.createElement("a")
+          var sp = document.createElement("span")
 
-            img.src=i["dp"]
-            img.width="100%"
-            img.height="100%"
-            usa.innerHTML=i["username"]
-            usa.href="/user/"+i["username"]
-            sp.innerHTML=i["content"]
+          img.src = i["dp"]
+          img.width = "100%"
+          img.height = "100%"
+          usa.innerHTML = i["username"]
+          usa.href = "/user/" + i["username"]
+          sp.innerHTML = i["content"]
 
-            imcom.appendChild(img)
-            bigs.appendChild(usa)
-            bigs.appendChild(sp)
+          imcom.appendChild(img)
+          bigs.appendChild(usa)
+          bigs.appendChild(sp)
 
-            big.appendChild(imcom)
-            big.appendChild(bigs)
+          big.appendChild(imcom)
+          big.appendChild(bigs)
 
-            contain.appendChild(big)
-          }
-       })
+          contain.appendChild(big)
+        }
+      })
     }
-    </script>
+  </script>
 </div>
 {% endblock %}

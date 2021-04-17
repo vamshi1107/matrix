@@ -1,521 +1,580 @@
- <style>
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap');
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap');
 
-        .bod{
-          position:fixed;
-          left:0px;
-          right:0px;
-          background-color:#0000007a;
-          top:0px;
-          bottom:0px;
-          opacity:80;
-          display:flex;
-          align-items:center;
-          visibility:hidden;
-          z-index:999;
-        }
-        body{
-         margin:0px;
-         padding:0px;
-        }
-        .container{
-          width:70vw;
-          height:80vh;
-          background-color:white;
-          margin-right:auto;
-          margin-left:auto;
-          border-radius:10px;
-        }
-        #con1{
-          width:70vw;
-          height:80vh;
-          background-color:white;
-          margin-right:auto;
-          margin-left:auto;
-          border-radius:10px;
-          padding:0px;
-        }
-        .clb{
-          font-size:30px;
-          cursor:pointer;
-          font-weight:bold;
-          transform:rotate(45deg);
-          width:40px;
-          height:40px;
-          margin:20px;
-          float:left;
-        }
-        .ban{
-          width:100%;
-          margin-right:auto;
-          margin-left:auto;
-          display:flex;
-          justify-content:flex-end;
-          height:70px;
-          align-items:center;
-        }
-        #ban1{
-          width:100%;
-          margin-right:auto;
-          margin-left:auto;
-          display:flex;
-          justify-content:space-between;
-          height:70px;
-          align-items:center;
-          border-bottom:.1px solid #dad8d8;
-          padding-left:10px;
-          padding-right:10px;
-        }
-        #nc{
-           width:50vw;
-        }
-        #ct{
-          font-size:20px;
-          font-weight:bold;
-          cursor:pointer;
-        }
-        #ct2{
-          font-size:20px;
-          font-weight:bold;
-          cursor:pointer;
-        }
-        #capcon{
-          width:100%;
-          display:flex;
-          justify-content:center;
-        }
-        #cap{
-          margin:10px 20px;
-          height:50px;
-          width:70%;
-          border:none;
-          border-bottom:.5px solid #dad8d8;
-          outline:none;
-        }
-        #cap:focus{
-        border-bottom:.5px solid #000;
-        }
-        #pos{
-         margin:20px 20px;
-         color:blue;
-         font-size:20px;
-         cursor:pointer;
-         font-family:'sui-semi-bold';
-        }
-        #dpcon{
-          width:40vw;
-        }
-        #dpup{
-         margin-top:20px;
-         color:blue;
-         font-size:20px;
-         cursor:pointer;
-         font-family: 'Roboto', sans-serif;
-        }
-        #update{
-          width:99%;
-          display:flex;
-          flex-direction:row;
-          justify-content:center;
-        }
-        #premb{
-          border:none;
-          font-size:15px;
-          height:30px;
-          border-radius:5px;
-          font-weight:bold;
-          background-color:#0095f6;
-          color:#ffffff;
-          margin:10px;
-        }
-        #remc{
-          display:flex;
-          flex-direction:row;
-          justify-content:center;
-          width:99%;
-        }
-        .prog{
-          height:100px;
-          width:100px;
-          border:10px solid grey;
-          border-left:10px solid blue;
-          border-radius:50%;
-          position:fixed;
-          z-index:11111;
-          left:50%;
-          margin-left:-100px;
-           top:50%;
-          margin-top:-100px;
-          animation:anim .5s infinite ease;
-          visibility:hidden;
-        }
-        @keyframes anim{
-          from{
-            transform:rotate(0deg)
-          }
-          to{
-            transform:rotate(360deg)
-          }
-        }
-        .rib{
-          display:flex;
-          flex-direction:row;
-          height:80%;
-          width:100%;
-          justify-content:space-between;
-        }
-        .ud{
-          width:45%;
-          display:flex;
-          height:97%;
-          flex-direction:column;
-          justify-content:space-between;
-          margin-left:20px;
-          border-left:.1px solid #dad8d8;
-        }
-        .post_i{
-          width:80%;
-          height:70%;
-          border-radius:1px;
-          overflow:hidden;
-          border:.1px solid #dad8d8;
-          display:flex;
-          justify-content:center;
-          align-items:center;
-          margin-left:auto;
-          margin-right:auto;
-        }
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap');
+  .bod {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    background-color: #0000007a;
+    top: 0px;
+    bottom: 0px;
+    opacity: 80;
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+    z-index: 999;
+  }
 
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
 
-</style>
- <style>
-             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap');
-        .container{
-          width:70vw;
-          height:80vh;
-          background-color:white;
-          margin-right:auto;
-          margin-left:auto;
-          border-radius:2px;
-        }
-        #con1{
-          width:70vw;
-          height:80vh;
-          background-color:white;
-          margin-right:auto;
-          margin-left:auto;
-          border-radius:2px;
-          padding:0px;
-          display:flex;
-          flex-direction:row;
-        }
-        .left{
-          width:70%;
-          height:100%;
-        }
-        .right{
-          width:30%;
-          height:100%;
-          display:flex;
-          flex-direction:column;
-        }
-        .banner{
-          height:60px;
-          border-bottom:.1px solid #dad8d8;
-          display:flex;
-          flex-direction:row;
-          justify-content:space-between;
-          align-items:center;
-          padding-left:15px;
-          width:100%;
-        }
-        .uc_o{
-          height:60px;
-          display:flex;
-          flex-direction:row;
-          align-items:center;
-        }
-        .prop{
-          height:35px;
-          width:35px;
-          border-radius:50%;
-        }
-        .ubm{
-          margin-left:15px;
-          font-size:18px;
-        }
-        .clb{
-          font-size:30px;
-          cursor:pointer;
-          font-weight:bold;
-          transform:rotate(45deg);
-          width:40px;
-          height:40px;
-          margin:20px;
-          display:flex;
-          flex-direction:row;
-          align-items:center;
-          margin-top:30px;
-          position:relative;
-        }
-        .ubcon{
-          width:100%;
-          height:80%;
-          overflow-y:auto;
-        }
-        .capic{
-          font-weight:bolder;
-          display:flex;
-          flex-direction:column;
-        }
-        .uk{
-          margin-top:10px;
-          padding-left:20px;
-          font-size:17px;
-          font-family: 'Poppins', sans-serif;
-          border-bottom:.1px solid #dad8d8;
-        }
-        .captio{
-          word-wrap:break-word;
-          margin-left:10px;
-        }
-        .rbkc{
-          border:0.1px solid grey;
-          font-size:15px;
-          height:30px;
-          border-radius:5px;
-          font-weight:bold;
-          color:#000000;
-          width:auto;
-          margin:5px;
-          cursor:pointer;
-          text-align:center;
-        }
-    </style>
- <style>
-  .o_con > div{
-     display:flex;
-     flex-direction:row;
-     padding:5px;
-     border-bottom:.1px solid #dad8d8;
+  .container {
+    width: 70vw;
+    height: 80vh;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
   }
-   .o_con > div > span{
-     display:flex;
-     flex-direction:column;
-     margin-left:15px;
-     width:70%;
-  }
-   .o_con > div > span >a{
-     font-size:16px;
-     font-family:'sui-semi-bold';
-  }
-  .o_con > div > span > span{
-     font-size:14px;
-     font-family:'sui-light';
-     margin-left:15px;
-     word-break:break-word;
-     height:auto;
-  }
-  .o_con > div > div{
-     height:50px;
-     width:50px;
-     border-radius:50%;
-  }
-  .o_con > div > div >img{
-     height:100%;
-     width:100%;
-  }
-  .o_con::-webkit-scrollbar{
-          width:0px;
-   }
-   .ubcon::-webkit-scrollbar{
-          width:0px;
-   }
-    .comm{
-  width:100%;
-  height:55px;
-  display:flex;
- flex-direction:row;
- align-items:center;
- border-top:.2px solid #dad8d8;
- border-bottom:.2px solid #dad8d8;
- padding:10px 10px;
 
-}
-.smi{
-width:60px;
-   display:flex;
- flex-direction:row;
- align-items:center;
- justify-content:center;
-}
-.comment{
-  width:100%;
-  height:90%;
-  outline:none;
-  border:none;
-  font-size:16px;
-}
-.posbu{
-      cursor:pointer;
-      color:#0095f6;
-      font-size:18px;
-      font-family: 'sui-semi-bold';
+  #con1 {
+    width: 70vw;
+    height: 80vh;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    padding: 0px;
+  }
+
+  .clb {
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transform: rotate(45deg);
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+    float: left;
+  }
+
+  .ban {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    align-items: center;
+  }
+
+  #ban1 {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    border-bottom: .1px solid #dad8d8;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #nc {
+    width: 50vw;
+  }
+
+  #ct {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #ct2 {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #capcon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #cap {
+    margin: 10px 20px;
+    height: 50px;
+    width: 70%;
+    border: none;
+    border-bottom: .5px solid #dad8d8;
+    outline: none;
+  }
+
+  #cap:focus {
+    border-bottom: .5px solid #000;
+  }
+
+  #pos {
+    margin: 20px 20px;
+    color: blue;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'sui-semi-bold';
+  }
+
+  #dpcon {
+    width: 40vw;
+  }
+
+  #dpup {
+    margin-top: 20px;
+    color: blue;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  #update {
+    width: 99%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #premb {
+    border: none;
+    font-size: 15px;
+    height: 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #0095f6;
+    color: #ffffff;
+    margin: 10px;
+  }
+
+  #remc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 99%;
+  }
+
+  .prog {
+    height: 100px;
+    width: 100px;
+    border: 10px solid grey;
+    border-left: 10px solid blue;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 11111;
+    left: 50%;
+    margin-left: -100px;
+    top: 50%;
+    margin-top: -100px;
+    animation: anim .5s infinite ease;
+    visibility: hidden;
+  }
+
+  @keyframes anim {
+    from {
+      transform: rotate(0deg)
     }
- </style>
-<div class="bod" id="pc">
-      <div class="container" id="con1">
-           <div class="prog" id="pr1"></div>
-           <div class="left">
-              <img width="100%" height="100%" alt="" src="" id="sho" >
-           </div>
-          <div class="right">
-               <div class="banner">
-                   <div class="uc_o">
-                      <div class="prop">
-                           {% if dpfound %}
-                                  <img src="{{dp.content}}" height="100%" width="100%">
-                           {% endif %}
-                           {% if not dpfound %}
-                                 <img src="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" height="100%" width="100%">
-                           {% endif %}
-                      </div>
-                      <div class="ubm">
-                        {{user.username}}
-                      </div>
-                   </div>
-                   <div onclick="cls()" class="clb" id="c1">+</div>
-               </div>
-              <div class="ubcon">
-                  <div class="capic">
-                     <input type="hidden" id="postid" >
-<!--                     <span class="uk" style="display:flex;flex-direction:row; padding:0px;">-->
-<!--                         <span  style="font-size:16px;font-family:'sui-semi-bold';">{{user.name}}</span>-->
-<!--                         <span class="captio" id="post_caption"  style="font-size:16px;font-family:'sui-light';"></span>-->
-<!--                     </span>-->
-                      <div class="o_con">
-                        <div >
-                            <div>
-                             {% if dpfound %}
-                                       <img src="{{dp.content}}" height="100%" width="100%">
-                             {% endif %}
-                             {% if not dpfound %}
-                                       <img src="https://instagram.fdel12-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fdel12-1.fna.fbcdn.net&_nc_ohc=0CE398PqtLwAX9XWgt3&oh=b03f38f512349bed45a72c144cd6720d&oe=6077A18F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2" height="100%" width="100%">
-                              {% endif %}
-                           </div>
-                           <span>
-                             <a>{{user.username}}</a>
-                             <span id="post_caption"></span>
-                           </span>
-                         </div>
-                      </div>
-                       <div class="o_con" id="comusk">
 
-                       </div>
-                  </div>
-              </div>
-              <input id="lusername" value="{{userid}}" style="display:none">
-               <footer style="bottom:0px;">
-                    <div class="comm">
-                       <div class="smi">
-                           <svg aria-label="Emoji" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M24 48C10.8 48 0 37.2 0 24S10.8 0 24 0s24 10.8 24 24-10.8 24-24 24zm0-45C12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21S35.6 3 24 3z"></path><path d="M34.9 24c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5zm-21.8 0c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5zM24 37.3c-5.2 0-8-3.5-8.2-3.7-.5-.6-.4-1.6.2-2.1.6-.5 1.6-.4 2.1.2.1.1 2.1 2.5 5.8 2.5 3.7 0 5.8-2.5 5.8-2.5.5-.6 1.5-.7 2.1-.2.6.5.7 1.5.2 2.1 0 .2-2.8 3.7-8 3.7z"></path></svg>
-                       </div>
-                     <input type="text" class="comment" placeholder="Add comment">
-                     <div class="posbu" onclick="addcom(event)">Post</div>
-                    </div>
-                </footer>
+    to {
+      transform: rotate(360deg)
+    }
+  }
+
+  .rib {
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .ud {
+    width: 45%;
+    display: flex;
+    height: 97%;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20px;
+    border-left: .1px solid #dad8d8;
+  }
+
+  .post_i {
+    width: 80%;
+    height: 70%;
+    border-radius: 1px;
+    overflow: hidden;
+    border: .1px solid #dad8d8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap');
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap');
+
+  .container {
+    width: 70vw;
+    height: 80vh;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 2px;
+  }
+
+  #con1 {
+    width: 70vw;
+    height: 80vh;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 2px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .left {
+    width: 70%;
+    height: 100%;
+  }
+
+  .right {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner {
+    height: 60px;
+    border-bottom: .1px solid #dad8d8;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    width: 100%;
+  }
+
+  .uc_o {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .prop {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+  }
+
+  .ubm {
+    margin-left: 15px;
+    font-size: 18px;
+  }
+
+  .clb {
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transform: rotate(45deg);
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;
+    position: relative;
+  }
+
+  .ubcon {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .capic {
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .uk {
+    margin-top: 10px;
+    padding-left: 20px;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: .1px solid #dad8d8;
+  }
+
+  .captio {
+    word-wrap: break-word;
+    margin-left: 10px;
+  }
+
+  .rbkc {
+    border: 0.1px solid grey;
+    font-size: 15px;
+    height: 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #000000;
+    width: auto;
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+</style>
+<style>
+  .o_con>div {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    border-bottom: .1px solid #dad8d8;
+  }
+
+  .o_con>div>span {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    width: 70%;
+  }
+
+  .o_con>div>span>a {
+    font-size: 16px;
+    font-family: 'sui-semi-bold';
+  }
+
+  .o_con>div>span>span {
+    font-size: 14px;
+    font-family: 'sui-light';
+    margin-left: 15px;
+    word-break: break-word;
+    height: auto;
+  }
+
+  .o_con>div>div {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+
+  .o_con>div>div>img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .o_con::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .ubcon::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .comm {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: .2px solid #dad8d8;
+    border-bottom: .2px solid #dad8d8;
+    padding: 10px 10px;
+
+  }
+
+  .smi {
+    width: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .comment {
+    width: 100%;
+    height: 90%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+  }
+
+  .posbu {
+    cursor: pointer;
+    color: #0095f6;
+    font-size: 18px;
+    font-family: 'sui-semi-bold';
+  }
+</style>
+<div class="bod" id="pc">
+  <div class="container" id="con1">
+    <div class="prog" id="pr1"></div>
+    <div class="left">
+      <img width="100%" height="100%" alt="" src="" id="sho">
+    </div>
+    <div class="right">
+      <div class="banner">
+        <div class="uc_o">
+          <div class="prop">
+            {% if dpfound %}
+            <img src="{{dp.content}}" height="100%" width="100%">
+            {% endif %}
+            {% if not dpfound %}
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/databasedemo-458be.appspot.com/o/img.jpg?alt=media&token=066341e5-fa12-4f64-893e-4151dafe541d"
+              height="100%" width="100%">
+            {% endif %}
           </div>
+          <div class="ubm">
+            {{user.username}}
+          </div>
+        </div>
+        <div onclick="cls()" class="clb" id="c1">+</div>
       </div>
+      <div class="ubcon">
+        <div class="capic">
+          <input type="hidden" id="postid">
+          <!--                     <span class="uk" style="display:flex;flex-direction:row; padding:0px;">-->
+          <!--                         <span  style="font-size:16px;font-family:'sui-semi-bold';">{{user.name}}</span>-->
+          <!--                         <span class="captio" id="post_caption"  style="font-size:16px;font-family:'sui-light';"></span>-->
+          <!--                     </span>-->
+          <div class="o_con">
+            <div>
+              <div>
+                {% if dpfound %}
+                <img src="{{dp.content}}" height="100%" width="100%">
+                {% endif %}
+                {% if not dpfound %}
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/databasedemo-458be.appspot.com/o/img.jpg?alt=media&token=066341e5-fa12-4f64-893e-4151dafe541d"
+                  height="100%" width="100%">
+                {% endif %}
+              </div>
+              <span>
+                <a>{{user.username}}</a>
+                <span id="post_caption"></span>
+              </span>
+            </div>
+          </div>
+          <div class="o_con" id="comusk">
+
+          </div>
+        </div>
+      </div>
+      <input id="lusername" value="{{userid}}" style="display:none">
+      <footer style="bottom:0px;">
+        <div class="comm">
+          <div class="smi">
+            <svg aria-label="Emoji" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24">
+              <path
+                d="M24 48C10.8 48 0 37.2 0 24S10.8 0 24 0s24 10.8 24 24-10.8 24-24 24zm0-45C12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21S35.6 3 24 3z">
+              </path>
+              <path
+                d="M34.9 24c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5zm-21.8 0c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5zM24 37.3c-5.2 0-8-3.5-8.2-3.7-.5-.6-.4-1.6.2-2.1.6-.5 1.6-.4 2.1.2.1.1 2.1 2.5 5.8 2.5 3.7 0 5.8-2.5 5.8-2.5.5-.6 1.5-.7 2.1-.2.6.5.7 1.5.2 2.1 0 .2-2.8 3.7-8 3.7z">
+              </path>
+            </svg>
+          </div>
+          <input type="text" class="comment" placeholder="Add comment">
+          <div class="posbu" onclick="addcom(event)">Post</div>
+        </div>
+      </footer>
+    </div>
+  </div>
 </div>
 <div class="bod" id="newp">
-      <div class="container" id="nc">
-                    <div class="prog" id="pr2"></div>
-          <div class="ban">
-              <div onclick="closepost()" class="clb" id="c2">+</div>
+  <div class="container" id="nc">
+    <div class="prog" id="pr2"></div>
+    <div class="ban">
+      <div onclick="closepost()" class="clb" id="c2">+</div>
+    </div>
+    <div class="poscon">
+      <form action="/post" method="post" id="pform" autocomplete="off">
+        {% csrf_token %}
+        <div class="post_i" id="nps" onclick="upload()">
+          <div id="ct">Add Image</div>
+          <img width="100%" height="100%" alt="" src="" id="pimg" style="display:none">
+          <input type="file" style="display:none" id="finp" onchange="selected()">
+          <input type="hidden" value="{{user.username}}" id="username" name="user">
+          <input type="hidden" id="type" name="type">
+          <input type="hidden" id="url" name="url">
+        </div>
+        <div id="capcon">
+          <input id="cap" type="text" placeholder="Caption" name="cap">
+          <div id="pos" onclick="submit()">
+            Post
           </div>
-          <div class="poscon">
-           <form action="/post" method="post" id="pform" autocomplete="off">
-               {% csrf_token %}
-             <div class="post_i" id="nps" onclick="upload()">
-                 <div id="ct">Add Image</div>
-                 <img width="100%" height="100%" alt="" src="" id="pimg" style="display:none">
-                 <input type="file" style="display:none" id="finp" onchange="selected()">
-                 <input type="hidden" value="{{user.username}}" id="username" name="user">
-                 <input type="hidden"  id="type" name="type">
-                 <input type="hidden"  id="url" name="url">
-             </div>
-             <div id="capcon">
-                     <input id="cap" type="text" placeholder="Caption" name="cap">
-                 <div id="pos" onclick="submit()">
-                     Post
-                 </div>
-             </div>
-           </form>
-          </div>
+        </div>
+      </form>
+    </div>
 
-      </div>
+  </div>
 </div>
 <div class="bod" id="dpin">
-      <div class="container" id="dpcon">
-                    <div class="prog" id="pr3"></div>
-          <div class="ban" >
-              <div onclick="closedp()" class="clb" id="c3">+</div>
-          </div>
-          <div>
-              <form action="addpic" method="post"  id="dpform">
-                  {% csrf_token%}
-                   <div class="post_i" onclick="upload2()">
-                          <div id="ct2">Upload Image</div>
-                           <img width="100%" height="100%" alt="" src="" id="pidp" style="display:none">
-                          <input type="file" style="display:none" id="finp2" onchange="selected2()">
-                          <input type="hidden" value="{{user.username}}" id="username2" name="user">
-                           <input type="hidden"  id="dpurl" name="url">
-                   </div>
-                   <div id="update" onclick="update()">
-                         <div id="dpup">Update</div>
-                   </div>
-              </form>
-          </div>
-      </div>
+  <div class="container" id="dpcon">
+    <div class="prog" id="pr3"></div>
+    <div class="ban">
+      <div onclick="closedp()" class="clb" id="c3">+</div>
+    </div>
+    <div>
+      <form action="addpic" method="post" id="dpform">
+        {% csrf_token%}
+        <div class="post_i" onclick="upload2()">
+          <div id="ct2">Upload Image</div>
+          <img width="100%" height="100%" alt="" src="" id="pidp" style="display:none">
+          <input type="file" style="display:none" id="finp2" onchange="selected2()">
+          <input type="hidden" value="{{user.username}}" id="username2" name="user">
+          <input type="hidden" id="dpurl" name="url">
+        </div>
+        <div id="update" onclick="update()">
+          <div id="dpup">Update</div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 <script>
 
-     function close(e){
-                document.getElementById("pc").style.visibility="hidden";
+  function close(e) {
+    document.getElementById("pc").style.visibility = "hidden";
 
-     }
-     function closedp(e){
-                document.getElementById("dpin").style.visibility="hidden";
+  }
+  function closedp(e) {
+    document.getElementById("dpin").style.visibility = "hidden";
 
-     }
-     function cls(e){
-           document.getElementById("pc").style.visibility="hidden";
-     }
-     function closepost(e){
-           document.getElementById("newp").style.visibility="hidden";
-     }
-     function make(e){
-       document.getElementById("newp").style.visibility="visible";
-     }
+  }
+  function cls(e) {
+    document.getElementById("pc").style.visibility = "hidden";
+  }
+  function closepost(e) {
+    document.getElementById("newp").style.visibility = "hidden";
+  }
+  function make(e) {
+    document.getElementById("newp").style.visibility = "visible";
+  }
 
-     function upload(){
-       document.getElementById("finp").click()
-     }
-     function upload2(){
-       document.getElementById("finp2").click()
-     }
+  function upload() {
+    document.getElementById("finp").click()
+  }
+  function upload2() {
+    document.getElementById("finp2").click()
+  }
 
-     function rempost(){
-       var id=document.getElementById("postid").value
-        url="removepost/"+id
-        fetch(url).then(res=>res.text()).then(data=>{
-          if(data=="True"){
-            window.location.reload()
-          }
-        })
-     }
+  function rempost() {
+    var id = document.getElementById("postid").value
+    url = "removepost/" + id
+    fetch(url).then(res => res.text()).then(data => {
+      if (data == "True") {
+        window.location.reload()
+      }
+    })
+  }
 
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -523,114 +582,113 @@ width:60px;
 <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
 <script>
-      var firebaseConfig = {
-           apiKey: "AIzaSyBsxMIXmRJebSOc5i7gYlYFT42TdOw6DcA",
-           authDomain: "myproject-d9de9.firebaseapp.com",
-           databaseURL: "https://myproject-d9de9.firebaseio.com",
-           projectId: "myproject-d9de9",
-           storageBucket: "myproject-d9de9.appspot.com",
-           messagingSenderId: "403604530600",
-           appId: "1:403604530600:web:60d9c6b109832036daa99d",
-           measurementId: "G-NHJSQNBL1H"
-      };
+  var firebaseConfig = {
+    apiKey: "AIzaSyBsxMIXmRJebSOc5i7gYlYFT42TdOw6DcA",
+    authDomain: "myproject-d9de9.firebaseapp.com",
+    databaseURL: "https://myproject-d9de9.firebaseio.com",
+    projectId: "myproject-d9de9",
+    storageBucket: "myproject-d9de9.appspot.com",
+    messagingSenderId: "403604530600",
+    appId: "1:403604530600:web:60d9c6b109832036daa99d",
+    measurementId: "G-NHJSQNBL1H"
+  };
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 
-  function selected(){
-      var input = document.getElementById("finp");
-      document.getElementById("ct").style.display="none";
-      var hin = document.getElementById("pimg");
-      hin.style.display="flex";
-      const file=input.files[0];
-      if (file){
-         var reader=new FileReader();
-         reader.addEventListener("load",(e)=>{
-              hin.src=e.srcElement.result
-         })
-         reader.readAsDataURL(file)
-      }
+  function selected() {
+    var input = document.getElementById("finp");
+    document.getElementById("ct").style.display = "none";
+    var hin = document.getElementById("pimg");
+    hin.style.display = "flex";
+    const file = input.files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.addEventListener("load", (e) => {
+        hin.src = e.srcElement.result
+      })
+      reader.readAsDataURL(file)
+    }
   }
-  function selected2(){
-      var input = document.getElementById("finp2");
-      document.getElementById("ct2").style.display="none";
-      var hin = document.getElementById("pidp");
-      hin.style.display="flex";
-      const file=input.files[0];
-      if (file){
-         var reader=new FileReader();
-         reader.addEventListener("load",(e)=>{
-              hin.src=e.srcElement.result
-         })
-         reader.readAsDataURL(file)
-      }
+  function selected2() {
+    var input = document.getElementById("finp2");
+    document.getElementById("ct2").style.display = "none";
+    var hin = document.getElementById("pidp");
+    hin.style.display = "flex";
+    const file = input.files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.addEventListener("load", (e) => {
+        hin.src = e.srcElement.result
+      })
+      reader.readAsDataURL(file)
+    }
   }
 
-  function submit(){
-      var input = document.getElementById("finp");
-      document.getElementById("pr2").style.visibility="visible";
-      var us=document.getElementById("username").value
-      var cap=document.getElementById("cap").value
-      ref=firebase.storage().ref()
-       var file=input.files[0];
-      if(file !=undefined){
-       var name=new Date() + file.name
-       meta={
-           contentType:file.type
-        }
-       task=ref.child(name).put(file,meta);
-       task.then(snap=>snap.ref.getDownloadURL()).then(url=>{
-           document.getElementById("url").value=url
-           document.getElementById("type").value=file.type
-           document.getElementById("pform").submit()
-       })
-     }
-     }
-   function update(){
-      var input = document.getElementById("finp2");
-      document.getElementById("pr3").style.visibility="visible";
-      var us=document.getElementById("username2").value
-      var file=input.files[0];
-      if(file !=undefined){
-       var name=new Date() + file.name
-       ref=firebase.storage().ref()
-       meta={
-           contentType:file.type
-        }
-       task=ref.child(name).put(file,meta);
-       task.then(snap=>snap.ref.getDownloadURL()).then(url=>{
-           document.getElementById("dpurl").value=url
-           document.getElementById("dpform").submit()
-       })
-     }
-     }
+  function submit() {
+    var input = document.getElementById("finp");
+    document.getElementById("pr2").style.visibility = "visible";
+    var us = document.getElementById("username").value
+    var cap = document.getElementById("cap").value
+    ref = firebase.storage().ref()
+    var file = input.files[0];
+    if (file != undefined) {
+      var name = new Date() + file.name
+      meta = {
+        contentType: file.type
+      }
+      task = ref.child(name).put(file, meta);
+      task.then(snap => snap.ref.getDownloadURL()).then(url => {
+        document.getElementById("url").value = url
+        document.getElementById("type").value = file.type
+        document.getElementById("pform").submit()
+      })
+    }
+  }
+  function update() {
+    var input = document.getElementById("finp2");
+    document.getElementById("pr3").style.visibility = "visible";
+    var us = document.getElementById("username2").value
+    var file = input.files[0];
+    if (file != undefined) {
+      var name = new Date() + file.name
+      ref = firebase.storage().ref()
+      meta = {
+        contentType: file.type
+      }
+      task = ref.child(name).put(file, meta);
+      task.then(snap => snap.ref.getDownloadURL()).then(url => {
+        document.getElementById("dpurl").value = url
+        document.getElementById("dpform").submit()
+      })
+    }
+  }
 
-      function addcom(e){
-           var id=document.getElementById("postid").value
-           var cs=e.srcElement.parentElement.children
-           var username=document.getElementById("lusername").value
-           var comm;
-           var inp;
-           for(let i of cs){
-                if(i.type=="text")
-                 {
-                   inp=i
-                   comm=i.value
-                 }
-            }
-           if(comm.replaceAll(" ","")!=""){
-              var url="/addcomment?id="+id+"&comm="+comm+"&user="+username
-              fetch(url).then(res=>res.text()).then(data=>{
-              console.log(data)
-                   if(data=="True"){
-                      inp.value=""
-                      window.location.reload()
-                    }
-               })
-            }
-       }
- </script>
- <script>
-if ( window.history.replaceState ) {
-  window.history.replaceState( null, null, window.location.href );
-}
+  function addcom(e) {
+    var id = document.getElementById("postid").value
+    var cs = e.srcElement.parentElement.children
+    var username = document.getElementById("lusername").value
+    var comm;
+    var inp;
+    for (let i of cs) {
+      if (i.type == "text") {
+        inp = i
+        comm = i.value
+      }
+    }
+    if (comm.replaceAll(" ", "") != "") {
+      var url = "/addcomment?id=" + id + "&comm=" + comm + "&user=" + username
+      fetch(url).then(res => res.text()).then(data => {
+        console.log(data)
+        if (data == "True") {
+          inp.value = ""
+          window.location.reload()
+        }
+      })
+    }
+  }
+</script>
+<script>
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
 </script>
