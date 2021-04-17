@@ -5,7 +5,6 @@ from sub.models import request as req
 import urllib
 
 def index(request):
-    member.objects.filter(username="").delete()
     if not request.session.get("login",False) :
         return  redirect("login")
     ul = list(relation.objects.filter(user1=request.session.get("user", "")).values_list("user2", flat=True)) + \
