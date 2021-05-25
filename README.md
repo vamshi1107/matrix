@@ -1,6 +1,6 @@
 # Matrix
 
-Social Media website
+Social Media website using Django framwork
 
 visit at https://matrixmedia.herokuapp.com/
 
