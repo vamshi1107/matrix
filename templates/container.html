@@ -97,7 +97,7 @@
     <input value="{{user}}" type="hidden" id="lusername">
     {% for i in posts %}
  <div class="card">
-  <header class="chead">
+  <header class="chead" style="padding:10px;">
       <div class="uhin">
         <div class="dp" style="overflow:hidden;background-color:transparent;">
            {% if i.dpfound %}
@@ -107,7 +107,7 @@
                 <img height="100%" width="100%" src="https://firebasestorage.googleapis.com/v0/b/databasedemo-458be.appspot.com/o/img.jpg?alt=media&token=066341e5-fa12-4f64-893e-4151dafe541d">
             {% endif %}
         </div>
-        <div class="usname">
+        <div class="usname" style="padding-left:5px">
             <a href="user/{{i.user.username}}">{{i.user.username}}</a>
          </div>
        </div>
@@ -187,6 +187,7 @@
        document.getElementById("commk").style.visibility="visible";
        var contain=document.getElementById("cmk");
        var url="getcomment/1107?id="+id
+       contain.innerHTML=""
        fetch(url).then(res=>res.json()).then(data=>{
          contain.innerHTML=""
           for(let i of data){
@@ -247,6 +248,7 @@
           width:60px;
           border-radius:50%;
           margin:5px;
+          overflow:hidden;
         }
         .o_un{
           font-family:'sui-semi-bold';

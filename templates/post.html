@@ -160,6 +160,7 @@
     border-left: 10px solid blue;
     border-radius: 50%;
     position: fixed;
+    overflow:hidden;
     z-index: 11111;
     left: 50%;
     margin-left: -100px;
@@ -258,6 +259,7 @@
     align-items: center;
     padding-left: 15px;
     width: 100%;
+    padding:10px;
   }
 
   .uc_o {
@@ -271,6 +273,8 @@
     height: 35px;
     width: 35px;
     border-radius: 50%;
+    overflow:hidden;
+
   }
 
   .ubm {
@@ -363,6 +367,7 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
+    overflow:hidden;
   }
 
   .o_con>div>div>img {
@@ -449,7 +454,7 @@
             <div>
               <div>
                 {% if dpfound %}
-                <img src="{{dp.content}}" height="100%" width="100%">
+                <img src="{{dp.content}}"  height="100%" width="100%">
                 {% endif %}
                 {% if not dpfound %}
                 <img

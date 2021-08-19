@@ -53,7 +53,8 @@ def get_sugs(name):
                    d["dp"] = dp[0].content
                 else:
                    d["dp"] = "https://firebasestorage.googleapis.com/v0/b/databasedemo-458be.appspot.com/o/img.jpg?alt=media&token=066341e5-fa12-4f64-893e-4151dafe541d"
-                l.append(d)
+                if d not in l:
+                   l.append(d)
      return l
 
 def profile(request):
