@@ -68,7 +68,7 @@
       height:auto;
     }
     .content{
-    height:600px;
+    height:580px;
     }
     .card{
       min-height:700px;
@@ -78,6 +78,9 @@
       margin-top:10px;
       font-family: 'sui-semi-bold';
       cursor:pointer;
+    }
+    .chead{
+      padding:10px;
     }
     .comcount{
       margin-left:15px;
@@ -97,7 +100,7 @@
     <input value="{{user}}" type="hidden" id="lusername">
     {% for i in posts %}
  <div class="card">
-  <header class="chead" style="padding:10px;">
+  <header class="chead">
       <div class="uhin">
         <div class="dp" style="overflow:hidden;background-color:transparent;">
            {% if i.dpfound %}
