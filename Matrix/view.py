@@ -134,6 +134,8 @@ def search(request):
     return  render(request,"search.html")
 
 def userpage(request,user):
+    if not request.session.get("login",False) :
+        return  redirect("login")
     u=member.objects.filter(username=user)
     check = req.objects.filter(To=user, From=request.session["user"])
     ul = list(relation.objects.filter(user1=request.session.get("user", "")).values_list("user2", flat=True)) + \
